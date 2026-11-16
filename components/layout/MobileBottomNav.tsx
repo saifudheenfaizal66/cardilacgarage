@@ -9,6 +9,7 @@ import {
   Phone,
 } from "lucide-react";
 import { BUSINESS_INFO } from "@/data/business";
+import { smoothScrollTo } from "@/components/common/scrollHelper";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home", href: "#home", Icon: Home },
@@ -21,6 +22,16 @@ export function MobileBottomNav() {
   const [activeSection, setActiveSection] = useState("home");
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      smoothScrollTo(href.replace("#", ""), 84);
+    }
+  };
 
   // Active section tracking
   useEffect(() => {
@@ -77,6 +88,7 @@ export function MobileBottomNav() {
               <a
                 key={id}
                 href={href}
+                onClick={(e) => handleNavClick(e, href)}
                 aria-label={label}
                 className={`mobile-nav-item group relative flex min-h-[48px] min-w-[48px] flex-col items-center justify-center gap-0.5 rounded-xl px-2 py-1.5 text-center transition-all duration-200 active:scale-90
                   ${

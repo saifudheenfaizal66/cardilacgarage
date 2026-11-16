@@ -9,13 +9,14 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { BUSINESS_INFO } from "@/data/business";
+import { smoothScrollTo } from "@/components/common/scrollHelper";
 
 const FOOTER_NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#pricing" },
   { label: "About Us", href: "#about" },
-  { label: "Book Slot", href: "#contact" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const STUDIO_SERVICES = [
@@ -40,6 +41,10 @@ export function Footer() {
           <div className="space-y-4 lg:col-span-4">
             <a
               href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                smoothScrollTo("home", 84);
+              }}
               className="inline-flex items-center gap-3 group focus-visible:outline-none"
             >
               <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#E81CFF]/45 bg-[#111116] shadow-[0_0_20px_-4px_rgba(232,28,255,0.4)] transition-transform duration-200 group-hover:scale-105">
@@ -76,6 +81,12 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    onClick={(e) => {
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        smoothScrollTo(link.href.replace("#", ""), 84);
+                      }
+                    }}
                     className="transition-colors hover:text-[#E81CFF]"
                   >
                     {link.label}

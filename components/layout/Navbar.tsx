@@ -3,13 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { BUSINESS_INFO } from "@/data/business";
+import { smoothScrollTo } from "@/components/common/scrollHelper";
 
 const NAV_LINKS = [
   { id: "home", label: "Home", href: "#home" },
   { id: "services", label: "Services", href: "#services" },
   { id: "pricing", label: "Packages", href: "#pricing" },
   { id: "about", label: "About Us", href: "#about" },
-  { id: "contact", label: "Book Slot", href: "#contact" },
+  { id: "contact", label: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -62,6 +63,24 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [drawerOpen]);
 
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      if (drawerOpen) {
+        setDrawerOpen(false);
+        setTimeout(() => {
+          smoothScrollTo(targetId, 84);
+        }, 120);
+      } else {
+        smoothScrollTo(targetId, 84);
+      }
+    }
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -75,6 +94,7 @@ export function Navbar() {
         {/* Left: Emblem Icon + Scaled Light Text Logo lockup */}
         <a
           href="#home"
+          onClick={(e) => handleLinkClick(e, "#home")}
           aria-label="Cardilac Garage - The Premium Car Wash"
           className="group flex shrink-0 items-center gap-2.5 sm:gap-3.5 rounded-lg py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A020F0]"
         >
@@ -100,6 +120,7 @@ export function Navbar() {
               <a
                 key={link.id}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className={`relative px-3.5 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
                   isActive
                     ? "text-white font-semibold"
@@ -140,7 +161,7 @@ export function Navbar() {
                 <a
                   key={link.id}
                   href={link.href}
-                  onClick={() => setDrawerOpen(false)}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className={`flex items-center justify-between rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors ${
                     isActive
                       ? "border border-[#A020F0]/40 bg-[#171722] text-white"
