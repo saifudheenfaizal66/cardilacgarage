@@ -14,7 +14,7 @@ import { smoothScrollTo } from "@/components/common/scrollHelper";
 const FOOTER_NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
-  { label: "Packages", href: "#pricing" },
+  { label: "Packages", href: "#packages" },
   { label: "About Us", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -56,7 +56,7 @@ export function Footer() {
               </div>
               <img
                 src={BUSINESS_INFO.logos.wordmarkLight}
-                alt="Cardilac Garage - The Premium Car Wash"
+                alt="Cardilac Garage — Repair · Detailing · Protection"
                 className="h-9 w-auto object-contain transition-all duration-200 group-hover:brightness-110 drop-shadow-[0_2px_10px_rgba(232,28,255,0.2)]"
               />
             </a>

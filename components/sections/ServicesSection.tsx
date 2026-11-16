@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { ServiceDetails } from "@/components/services/ServiceDetails";
@@ -10,88 +10,90 @@ import {
   ServiceCategorySlug,
   ServiceItem,
 } from "@/data/services";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
-function MobileServiceCarousel({
-  items,
-  onViewDetails,
-}: {
-  items: ServiceItem[];
-  onViewDetails: (s: ServiceItem) => void;
-}) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+type CategoryFilter = "all" | ServiceCategorySlug;
 
-  const scroll = (dir: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const cardW = el.firstElementChild
-      ? (el.firstElementChild as HTMLElement).offsetWidth + 12
-      : 240;
-    el.scrollBy({ left: dir === "right" ? cardW : -cardW, behavior: "smooth" });
-  };
-
-  return (
-    <div className="relative">
-      <div
-        ref={scrollRef}
-        className="mobile-snap-scroll"
-        style={{ paddingBottom: "1rem" }}
-      >
-        {items.map((service) => (
-          <div
-            key={service.id}
-            className="mobile-snap-item w-[75vw] max-w-[300px] flex-shrink-0"
-          >
-            <ServiceCard service={service} onViewDetails={onViewDetails} />
-          </div>
-        ))}
-        <div className="w-4 flex-shrink-0" />
-      </div>
-
-      {/* Nav arrows — only shown if more than 2 cards */}
-      {items.length > 2 && (
-        <div className="mt-2 flex items-center justify-end gap-2 pr-5">
-          <button
-            type="button"
-            onClick={() => scroll("left")}
-            aria-label="Previous service"
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#292932] bg-[#17171F] text-white active:bg-[#A020F0] transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            type="button"
-            onClick={() => scroll("right")}
-            aria-label="Next service"
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-[#292932] bg-[#17171F] text-white active:bg-[#A020F0] transition-colors"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
-      )}
-    </div>
-  );
+interface CategoryTabConfig {
+  slug: CategoryFilter;
+  label: string;
 }
 
-export function ServicesSection() {
-  const [activeCategory, setActiveCategory] = useState<
-    "all" | ServiceCategorySlug
-  >("all");
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(
-    null
-  );
+const CATEGORY_TABS: CategoryTabConfig[] = [
+  { slug: "all", label: "All" },
+  { slug: "automotive-repair", label: "Repair" },
+  { slug: "paint-protection", label: "Paint Protection" },
+  { slug: "car-wash-cleaning", label: "Car Wash" },
+  { slug: "polishing-protection", label: "Polishing" },
+  { slug: "interior-accessories", label: "Interior" },
+  { slug: "two-wheeler-care", label: "Two-Wheeler" },
+];
 
-  const visibleGroups =
+export function ServicesSection() {
+  const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+
+  const tabListRef = useRef<HTMLDivElement>(null);
+  const activeTabRef = useRef<HTMLButtonElement | null>(null);
+
+  // Scroll active tab into view in mobile horizontal bar
+  useEffect(() => {
+    if (activeTabRef.current) {
+      activeTabRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeCategory]);
+
+  const getCount = (slug: CategoryFilter): number => {
+    if (slug === "all") return SERVICES_DATA.length;
+    return SERVICES_DATA.filter((s) => s.category === slug).length;
+  };
+
+  const filteredServices =
     activeCategory === "all"
-      ? SERVICE_CATEGORIES
-      : SERVICE_CATEGORIES.filter((cat) => cat.slug === activeCategory);
+      ? SERVICES_DATA
+      : SERVICES_DATA.filter((s) => s.category === activeCategory);
+
+  const activeCategoryInfo =
+    activeCategory === "all"
+      ? null
+      : SERVICE_CATEGORIES.find((cat) => cat.slug === activeCategory);
+
+  // Keyboard navigation for tablist
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let newIndex = index;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+      e.preventDefault();
+      newIndex = (index + 1) % CATEGORY_TABS.length;
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+      e.preventDefault();
+      newIndex = (index - 1 + CATEGORY_TABS.length) % CATEGORY_TABS.length;
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      newIndex = 0;
+    } else if (e.key === "End") {
+      e.preventDefault();
+      newIndex = CATEGORY_TABS.length - 1;
+    } else {
+      return;
+    }
+
+    const nextTab = CATEGORY_TABS[newIndex];
+    setActiveCategory(nextTab.slug);
+    const buttons = tabListRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    buttons?.[newIndex]?.focus();
+  };
 
   return (
     <section
       id="services"
-      className="border-t border-[#292932] bg-[#111116] py-16 lg:py-28"
+      className="scroll-mt-24 border-t border-[#292932] bg-[#111116] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header row with count and mobile dropdown */}
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Service Catalogue"
@@ -99,153 +101,107 @@ export function ServicesSection() {
             description="Explore our complete automotive and two-wheeler detailing portfolio, organized by specialized treatment category."
           />
 
-          <div className="hidden text-xs font-medium text-[#A1A1AA] lg:block">
-            Showing{" "}
-            <span className="font-bold text-white">
-              {activeCategory === "all"
-                ? SERVICES_DATA.length
-                : SERVICES_DATA.filter((s) => s.category === activeCategory)
-                    .length}
-            </span>{" "}
-            services
+          <div className="flex items-center justify-between gap-4">
+            {/* Live Count */}
+            <div className="text-xs font-medium text-[#A1A1AA]">
+              Showing{" "}
+              <span className="font-bold text-white">
+                {filteredServices.length}
+              </span>{" "}
+              services
+            </div>
+
+            {/* Mobile Dropdown (stays 100% in sync with desktop chips) */}
+            <div className="relative sm:hidden">
+              <select
+                value={activeCategory}
+                onChange={(e) => setActiveCategory(e.target.value as CategoryFilter)}
+                aria-label="Filter services by category"
+                className="appearance-none rounded-lg border border-[#A020F0]/50 bg-[#171724] py-2 pl-3 pr-8 text-xs font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#E81CFF]"
+              >
+                {CATEGORY_TABS.map((tab) => (
+                  <option key={tab.slug} value={tab.slug} className="bg-[#111116] text-white">
+                    {tab.label} ({getCount(tab.slug)})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#E81CFF]" />
+            </div>
           </div>
         </div>
 
-        {/* Category Filter — mobile: horizontal snap scroll, desktop: wrap */}
+        {/* Tablist for desktop and horizontal scroll on mobile */}
         <div
+          ref={tabListRef}
           role="tablist"
           aria-label="Service categories"
-          className="mt-6 lg:mt-8"
+          className="mt-8 flex overflow-x-auto pb-2 scrollbar-none gap-2 border-b border-[#292932]"
         >
-          {/* Mobile pill strip */}
-          <div className="mobile-snap-scroll lg:hidden">
-            {[
-              {
-                slug: "all" as const,
-                title: `All (${SERVICES_DATA.length})`,
-                code: "★",
-              },
-              ...SERVICE_CATEGORIES.map((g) => ({
-                slug: g.slug as "all" | ServiceCategorySlug,
-                title: `${g.title} (${
-                  SERVICES_DATA.filter((s) => s.category === g.slug).length
-                })`,
-                code: g.code,
-              })),
-            ].map((item) => {
-              const isActive = activeCategory === item.slug;
-              return (
-                <button
-                  key={item.slug}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() =>
-                    setActiveCategory(item.slug as "all" | ServiceCategorySlug)
-                  }
-                  className={`mobile-snap-item mobile-tap-highlight flex-shrink-0 rounded-full border px-4 py-2.5 text-xs font-bold tracking-wide transition-all whitespace-nowrap min-h-[44px]
-                    ${
-                      isActive
-                        ? "border-[#A020F0] bg-[#A020F0] text-white shadow-[0_0_20px_-6px_rgba(160,32,240,0.65)]"
-                        : "border-[#292932] bg-[#17171F] text-[#A1A1AA]"
-                    }`}
-                >
-                  {item.title}
-                </button>
-              );
-            })}
-            <div className="w-4 flex-shrink-0" />
-          </div>
-
-          {/* Desktop wrap tabs */}
-          <div className="hidden flex-wrap gap-2 border-b border-[#292932] pb-5 lg:flex">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === "all"}
-              onClick={() => setActiveCategory("all")}
-              className={`cursor-pointer rounded-md border px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
-                activeCategory === "all"
-                  ? "border-[#A020F0] bg-[#A020F0] text-white shadow-[0_0_20px_-6px_rgba(160,32,240,0.65)]"
-                  : "border-[#292932] bg-[#17171F] text-[#A1A1AA] hover:border-[#A020F0]/50 hover:text-white"
-              }`}
-            >
-              All Categories ({SERVICES_DATA.length})
-            </button>
-
-            {SERVICE_CATEGORIES.map((group) => {
-              const isActive = activeCategory === group.slug;
-              const count = SERVICES_DATA.filter(
-                (s) => s.category === group.slug
-              ).length;
-              return (
-                <button
-                  key={group.slug}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActiveCategory(group.slug)}
-                  className={`cursor-pointer rounded-md border px-4 py-2 text-xs font-semibold tracking-wide transition-all ${
-                    isActive
-                      ? "border-[#A020F0] bg-[#A020F0] text-white shadow-[0_0_20px_-6px_rgba(160,32,240,0.65)]"
-                      : "border-[#292932] bg-[#17171F] text-[#A1A1AA] hover:border-[#A020F0]/50 hover:text-white"
-                  }`}
-                >
-                  <span className="mr-1.5 text-[10px] opacity-75">{group.code}</span>
-                  {group.title} ({count})
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Service Groups */}
-        <div className="mt-8 space-y-12 lg:mt-12 lg:space-y-14">
-          {visibleGroups.map((group) => {
-            const items = SERVICES_DATA.filter((s) => s.category === group.slug);
+          {CATEGORY_TABS.map((tab, idx) => {
+            const isActive = activeCategory === tab.slug;
+            const count = getCount(tab.slug);
             return (
-              <div key={group.slug}>
-                <div className="mb-5 flex flex-col gap-2 border-l-2 border-[#A020F0] pl-4 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <span className="text-[11px] font-semibold tracking-[0.2em] text-[#A020F0] uppercase">
-                      Category {group.code}
-                    </span>
-                    <h3 className="mt-0.5 font-display text-xl font-bold text-white sm:text-2xl">
-                      {group.title}
-                    </h3>
-                  </div>
-                  <p className="max-w-xl text-xs leading-relaxed text-[#A1A1AA] sm:text-sm">
-                    {group.subtitle}
-                  </p>
-                </div>
-
-                {/* Mobile: horizontal carousel */}
-                <div className="lg:hidden">
-                  <MobileServiceCarousel
-                    items={items}
-                    onViewDetails={setSelectedService}
-                  />
-                </div>
-
-                {/* Desktop: grid */}
-                <div
-                  className={`hidden lg:grid gap-6 ${
-                    group.slug === "two-wheeler-care"
-                      ? "grid-cols-1 md:grid-cols-2 max-w-5xl"
-                      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              <button
+                key={tab.slug}
+                ref={isActive ? activeTabRef : null}
+                id={`tab-${tab.slug}`}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls="services-grid"
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveCategory(tab.slug)}
+                onKeyDown={(e) => handleKeyDown(e, idx)}
+                className={`flex-shrink-0 cursor-pointer min-h-[44px] items-center rounded-xl border px-4 py-2.5 text-xs font-bold tracking-wide transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E81CFF] ${
+                  isActive
+                    ? "border-[#A020F0] bg-[#A020F0] text-white shadow-[0_0_20px_-6px_rgba(160,32,240,0.65)]"
+                    : "border-[#292932] bg-[#17171F] text-[#A1A1AA] hover:border-[#A020F0]/50 hover:text-white"
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span
+                  className={`ml-1.5 text-[10px] rounded-full px-1.5 py-0.5 ${
+                    isActive ? "bg-white/20 text-white" : "bg-[#111116] text-[#71717A]"
                   }`}
                 >
-                  {items.map((service) => (
-                    <ServiceCard
-                      key={service.id}
-                      service={service}
-                      onViewDetails={setSelectedService}
-                    />
-                  ))}
-                </div>
-              </div>
+                  {count}
+                </span>
+              </button>
             );
           })}
+        </div>
+
+        {/* Active Category Intro Header (Only shown when a specific category is filtered) */}
+        {activeCategoryInfo && (
+          <div className="mt-8 flex flex-col gap-2 border-l-2 border-[#A020F0] pl-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="text-[11px] font-semibold tracking-[0.2em] text-[#A020F0] uppercase">
+                Category {activeCategoryInfo.code}
+              </span>
+              <h3 className="mt-0.5 font-display text-xl font-bold text-white sm:text-2xl">
+                {activeCategoryInfo.title}
+              </h3>
+            </div>
+            <p className="max-w-xl text-xs leading-relaxed text-[#A1A1AA] sm:text-sm">
+              {activeCategoryInfo.subtitle}
+            </p>
+          </div>
+        )}
+
+        {/* Unified Responsive Grid (Rendered once, no duplicate cards anywhere in DOM) */}
+        <div
+          id="services-grid"
+          role="tabpanel"
+          aria-labelledby={`tab-${activeCategory}`}
+          className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {filteredServices.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              onViewDetails={setSelectedService}
+            />
+          ))}
         </div>
       </div>
 

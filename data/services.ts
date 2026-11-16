@@ -20,6 +20,8 @@ export interface ServiceItem {
   highlights: string[];
   variableNote?: string;
   confirmationNote?: string;
+  isNeutralRepairCard?: boolean;
+  repairIcon?: "wrench" | "cpu" | "disc" | "snowflake" | "cog" | "zap";
 }
 
 export interface ServiceCategoryGroup {
@@ -84,9 +86,9 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Complete engine oil change, oil filter replacement, fluid top-ups, spark plugs check, and comprehensive 40-point safety inspection.",
     startingPriceLabel: "From ₹2,499",
-    image: "/images/engine-bay.jpg",
+    image: "/images/periodic-maintenance.jpg",
     imageAlt: "Technician performing periodic engine oil service and multi-point check at Cardilac Garage",
-    pricingIds: ["basic-car-wash"],
+    pricingIds: ["periodic-maintenance-pack"],
     warrantyBadge: "Service Guarantee",
     highlights: [
       "High-grade synthetic/semi-synthetic engine oil & OEM filter replacement",
@@ -103,9 +105,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Advanced digital OBD-II scanning for check engine warnings, sensor errors, live ECU data analysis, and fault code resetting.",
     startingPriceLabel: "From ₹799",
-    image: "/images/hero-studio.jpg",
+    image: "/images/computerized-diagnostics.jpg",
     imageAlt: "Computerized OBD-II engine diagnostic scanning at Cardilac Garage",
-    pricingIds: ["basic-car-wash"],
+    pricingIds: ["computerized-diagnostics-pack"],
+    repairIcon: "cpu",
     highlights: [
       "Professional OBD-II digital diagnostics scanner for all car makes",
       "Real-time sensor telemetry, fuel trim & transmission scanning",
@@ -121,9 +124,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Brake pad replacement, disc rotor inspection, caliper servicing, suspension bush overhaul, and shock absorber checks.",
     startingPriceLabel: "From ₹1,200",
-    image: "/images/underbody-coating.jpg",
+    image: "/images/brake-suspension.jpg",
     imageAlt: "Brake disc and suspension overhaul at Cardilac Garage",
-    pricingIds: ["anti-rust-layer"],
+    pricingIds: ["brake-suspension-pack"],
+    repairIcon: "disc",
     highlights: [
       "Front and rear brake disc pad inspection & replacement",
       "Brake fluid line bleeding & ABS diagnostic check",
@@ -139,9 +143,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Comprehensive car AC diagnostics, gas leakage testing, refrigerant R134a recharge, compressor test, and cabin antibacterial misting.",
     startingPriceLabel: "From ₹1,500",
-    image: "/images/cooling-film.jpg",
+    image: "/images/car-ac-service.jpg",
     imageAlt: "Car AC cooling service and gas recharge at Cardilac Garage",
-    pricingIds: ["cooling-film"],
+    pricingIds: ["car-ac-pack"],
+    repairIcon: "snowflake",
     highlights: [
       "AC cooling pressure test & vacuum leak detection",
       "Refrigerant R134a charging & compressor lubricant top-up",
@@ -157,9 +162,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Clutch plate overhaul, pressure plate adjustment, gearbox oil flush, and transmission troubleshooting for smooth shifting.",
     startingPriceLabel: "From ₹2,800",
-    image: "/images/anti-rust-layer.jpg",
+    image: "/images/clutch-gearbox.jpg",
     imageAlt: "Clutch and transmission repair bay at Cardilac Garage",
-    pricingIds: ["underbody-3m"],
+    pricingIds: ["clutch-gearbox-pack"],
+    repairIcon: "cog",
     highlights: [
       "Clutch plate, release bearing & slave cylinder replacement",
       "Transmission fluid flush and gearbox calibration",
@@ -175,9 +181,10 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Alternator testing, battery health check, starter motor inspection, wiring harness repair, and fuse box troubleshooting.",
     startingPriceLabel: "From ₹650",
-    image: "/images/single-step-polishing.jpg",
+    image: "/images/electrical-battery.jpg",
     imageAlt: "Automotive electrical system and battery testing at Cardilac Garage",
-    pricingIds: ["single-step-polishing"],
+    pricingIds: ["electrical-battery-pack"],
+    repairIcon: "zap",
     highlights: [
       "Digital battery load analysis & terminal anti-corrosion treatment",
       "Alternator charging rate & starter motor diagnostic test",
@@ -494,8 +501,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Custom perforated and ventilated leather seat covers engineered for breathability, heat rejection, and tailored fitment.",
     startingPriceLabel: "From ₹6,000",
-    image: "/images/seat-covers-ventilated.jpg",
-    imageAlt: "Bespoke perforated ventilated black leather car seat in luxury studio lighting",
+    image: "/images/seat-covers-feno.jpg",
+    imageAlt: "Bespoke perforated ventilated Feno leather car seat in luxury studio lighting",
     pricingIds: ["seat-covers-feno"],
     highlights: [
       "Precision micro-perforated breathable leather",
@@ -511,8 +518,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Supple Napa leather seat covers featuring handcrafted diamond-quilt and contrast sports stitching for an elevated cabin feel.",
     startingPriceLabel: "From ₹7,000",
-    image: "/images/seat-covers-stitching.jpg",
-    imageAlt: "Diamond-quilted black leather seat with contrast precision sports stitching",
+    image: "/images/seat-covers-napa.jpg",
+    imageAlt: "Diamond-quilted black Napa leather seat with contrast precision sports stitching",
     pricingIds: ["seat-covers-napa"],
     highlights: [
       "Supple, ultra-comfortable Napa material",
@@ -528,8 +535,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Premium-grade luxury leather seat upholstery paired with meticulous deep leather foam sanitization and optional armrest styling.",
     startingPriceLabel: "From ₹8,000",
-    image: "/images/seat-cleaning-detail.jpg",
-    imageAlt: "Professional detailing technician foaming and cleaning luxury leather seats",
+    image: "/images/seat-covers-porsche.jpg",
+    imageAlt: "Professional detailing technician foaming and cleaning luxury Porsche leather seats",
     pricingIds: ["seat-covers-porsche"],
     highlights: [
       "Ultra-premium grade leather craftsmanship",

@@ -4,12 +4,13 @@ import React, { useState, useMemo } from "react";
 import {
   Search,
   X,
-  Car,
   Shield,
   Sparkles,
   Droplets,
   Armchair,
   Bike,
+  Wrench,
+  Sparkle,
 } from "lucide-react";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { PRICING_DATA } from "@/data/pricing";
@@ -17,6 +18,11 @@ import { PricingAccordionGroup } from "@/components/pricing/PricingAccordion";
 
 export function PricingSection() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [openAccordionId, setOpenAccordionId] = useState<string | null>("car-wash");
+
+  const toggleAccordion = (id: string) => {
+    setOpenAccordionId((prev) => (prev === id ? null : id));
+  };
 
   // Filter entries based on search
   const filteredData = useMemo(() => {
@@ -31,9 +37,9 @@ export function PricingSection() {
     );
   }, [searchQuery]);
 
-  // Group into clean categories
+  // Group into clean, fully populated categories
   const washPackages = useMemo(
-    () => filteredData.filter((e) => e.category === "car-wash"),
+    () => filteredData.filter((e) => e.category === "car-wash" && !e.id.endsWith("-pack")),
     [filteredData]
   );
 
@@ -47,13 +53,19 @@ export function PricingSection() {
     [filteredData]
   );
 
-  const interiorAndSpecialty = useMemo(
-    () => filteredData.filter((e) => e.category === "interior-care"),
+  const interiorSpa = useMemo(
+    () =>
+      filteredData.filter(
+        (e) => e.category === "interior-care" && !e.id.startsWith("seat-covers-")
+      ),
     [filteredData]
   );
 
-  const accessories = useMemo(
-    () => filteredData.filter((e) => e.category === "accessories"),
+  const seatCoversAndAccessories = useMemo(
+    () =>
+      filteredData.filter(
+        (e) => e.id.startsWith("seat-covers-") || e.category === "accessories"
+      ),
     [filteredData]
   );
 
@@ -62,11 +74,19 @@ export function PricingSection() {
     [filteredData]
   );
 
+  const mechanicalRepair = useMemo(
+    () => filteredData.filter((e) => e.id.endsWith("-pack")),
+    [filteredData]
+  );
+
   return (
     <section
-      id="pricing"
-      className="border-t border-[#292932] bg-[#09090D] py-16 lg:py-24"
+      id="packages"
+      className="scroll-mt-24 border-t border-[#292932] bg-[#09090D] py-16 lg:py-24"
     >
+      {/* Anchor alias for #pricing to preserve existing links */}
+      <span id="pricing" className="pointer-events-none absolute -mt-24 h-0 w-0" aria-hidden="true" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
@@ -90,6 +110,7 @@ export function PricingSection() {
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
+                aria-label="Clear package search"
                 className="absolute top-1/2 right-2.5 -translate-y-1/2 cursor-pointer text-[#A1A1AA] hover:text-white"
               >
                 <X className="h-3.5 w-3.5" />
@@ -117,73 +138,91 @@ export function PricingSection() {
           </div>
         ) : null}
 
-        {/* Expandable Accordion Groups */}
+        {/* Expandable Accordion Groups (One open at a time) */}
         <div className="mt-8 space-y-4">
-          {washPackages.length > 0 ? (
+          {washPackages.length > 0 && (
             <PricingAccordionGroup
               id="car-wash"
-              title="Car Wash &amp; Hydrophobic Care"
-              subtitle="Basic foam wash, underbody rinse &amp; SiO2 ceramic wash tiers"
+              title="Car Wash & Hydrophobic Care"
+              subtitle="Basic foam wash, underbody rinse & SiO2 ceramic wash tiers"
               icon={Droplets}
               entries={washPackages}
-              defaultOpen={true}
+              isOpen={openAccordionId === "car-wash"}
+              onToggle={() => toggleAccordion("car-wash")}
             />
-          ) : null}
+          )}
 
-          {paintProtection.length > 0 ? (
+          {paintProtection.length > 0 && (
             <PricingAccordionGroup
               id="paint-protection"
-              title="Ceramic, Graphene &amp; Borophene Coatings"
-              subtitle="Certified 9H &amp; 10H long-term paint protection with multi-year warranty"
+              title="Ceramic, Graphene & Borophene Coatings"
+              subtitle="Certified 9H & 10H long-term paint protection with multi-year warranty"
               icon={Shield}
               entries={paintProtection}
-              defaultOpen={false}
+              isOpen={openAccordionId === "paint-protection"}
+              onToggle={() => toggleAccordion("paint-protection")}
             />
-          ) : null}
+          )}
 
-          {polishing.length > 0 ? (
+          {polishing.length > 0 && (
             <PricingAccordionGroup
               id="polishing"
-              title="Paint Correction &amp; Machine Polishing"
-              subtitle="Swirl removal, single step glaze &amp; 2-step compound rubbing"
+              title="Paint Correction & Machine Polishing"
+              subtitle="Swirl removal, single step glaze & 2-step compound rubbing"
               icon={Sparkles}
               entries={polishing}
-              defaultOpen={false}
+              isOpen={openAccordionId === "polishing"}
+              onToggle={() => toggleAccordion("polishing")}
             />
-          ) : null}
+          )}
 
-          {interiorAndSpecialty.length > 0 ? (
+          {interiorSpa.length > 0 && (
             <PricingAccordionGroup
               id="interior-care"
-              title="Interior Spa &amp; Underbody Treatments"
-              subtitle="Deep interior steam wash, engine bay dressing &amp; anti-rust coats"
-              icon={Car}
-              entries={interiorAndSpecialty}
-              defaultOpen={false}
+              title="Interior Spa & Cabin Treatments"
+              subtitle="Deep interior steam wash, upholstery extraction & sanitization"
+              icon={Sparkle}
+              entries={interiorSpa}
+              isOpen={openAccordionId === "interior-care"}
+              onToggle={() => toggleAccordion("interior-care")}
             />
-          ) : null}
+          )}
 
-          {accessories.length > 0 ? (
+          {seatCoversAndAccessories.length > 0 && (
             <PricingAccordionGroup
-              id="accessories"
-              title="Seat Covers, Cooling Film &amp; Floor Mats"
-              subtitle="Custom Feno, Napa, Porsche upholstery &amp; heat-rejection films"
+              id="seat-covers"
+              title="Seat Covers, Cooling Film & Accessories"
+              subtitle="Custom Feno, Napa, Porsche leather upholstery & solar heat-rejection films"
               icon={Armchair}
-              entries={accessories}
-              defaultOpen={false}
+              entries={seatCoversAndAccessories}
+              isOpen={openAccordionId === "seat-covers"}
+              onToggle={() => toggleAccordion("seat-covers")}
             />
-          ) : null}
+          )}
 
-          {bikeWash.length > 0 ? (
+          {bikeWash.length > 0 && (
             <PricingAccordionGroup
               id="bike-wash"
-              title="Two-Wheeler Detailing &amp; Wash"
-              subtitle="Superbike foam wash, ceramic hydrophobic wash &amp; Teflon glaze"
+              title="Two-Wheeler Detailing & Wash"
+              subtitle="Superbike foam wash, ceramic hydrophobic wash & 9H coating"
               icon={Bike}
               entries={bikeWash}
-              defaultOpen={false}
+              isOpen={openAccordionId === "bike-wash"}
+              onToggle={() => toggleAccordion("bike-wash")}
             />
-          ) : null}
+          )}
+
+          {mechanicalRepair.length > 0 && (
+            <PricingAccordionGroup
+              id="automotive-repair"
+              title="Automotive Mechanical Repair & Diagnostics"
+              subtitle="Scheduled oil maintenance, computerized OBD-II scan, brake & AC service"
+              icon={Wrench}
+              entries={mechanicalRepair}
+              isOpen={openAccordionId === "automotive-repair"}
+              onToggle={() => toggleAccordion("automotive-repair")}
+            />
+          )}
         </div>
       </div>
     </section>

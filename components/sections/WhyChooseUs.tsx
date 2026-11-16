@@ -68,7 +68,7 @@ function useMobileReveal(ref: React.RefObject<HTMLElement | null>) {
     );
     items.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
-  }, []);
+  }, [ref]);
 }
 
 export function WhyChooseUs() {

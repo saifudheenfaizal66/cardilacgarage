@@ -6,29 +6,30 @@ import {
   Sparkles,
   ShieldCheck,
   Check,
-  Phone,
+  MessageCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PricingEntry } from "@/data/pricing";
-import { BUSINESS_INFO } from "@/data/business";
 
 interface PricingAccordionGroupProps {
-  id?: string;
+  id: string;
   title: string;
   subtitle: string;
   icon: React.ElementType;
   entries: PricingEntry[];
-  defaultOpen?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
 export function PricingAccordionGroup({
+  id,
   title,
   subtitle,
   icon: Icon,
   entries,
-  defaultOpen = false,
+  isOpen,
+  onToggle,
 }: PricingAccordionGroupProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
   const [expandedFeatures, setExpandedFeatures] = useState<Record<string, boolean>>({});
 
   const toggleFeatures = (entryId: string) => {
@@ -39,13 +40,15 @@ export function PricingAccordionGroup({
     <div className="overflow-hidden rounded-xl border border-[#292932] bg-[#111116] transition-all duration-300 hover:border-[#A020F0]/50">
       {/* Accordion Header */}
       <button
+        id={`accordion-header-${id}`}
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full cursor-pointer items-center justify-between p-5 sm:p-6 text-left transition-colors hover:bg-[#17171F]/70"
+        aria-controls={`accordion-content-${id}`}
+        className="flex w-full cursor-pointer items-center justify-between p-5 sm:p-6 text-left transition-colors hover:bg-[#17171F]/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E81CFF]"
       >
         <div className="flex items-center gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[#A020F0]/40 bg-[#17171F] shadow-[0_0_15px_-4px_rgba(160,32,240,0.35)]">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#A020F0]/40 bg-[#17171F] shadow-[0_0_15px_-4px_rgba(160,32,240,0.35)]">
             <Icon className="h-6 w-6 text-[#E81CFF]" />
           </div>
           <div>
@@ -72,25 +75,31 @@ export function PricingAccordionGroup({
         </div>
       </button>
 
-      {/* Accordion Content */}
+      {/* Accordion Content with animated height */}
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id={`accordion-content-${id}`}
+            role="region"
+            aria-labelledby={`accordion-header-${id}`}
             key="content"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="border-t border-[#292932] bg-[#0D0D12] p-4 sm:p-6">
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                 {entries.map((entry) => {
                   const isFeatured = entry.highlightBadge === "Featured Premium";
                   const isPopular = entry.highlightBadge === "Popular";
-                  const showAllInclusions = expandedFeatures[entry.id];
+                  const showAllInclusions = Boolean(expandedFeatures[entry.id]);
                   const inclusionsToDisplay = showAllInclusions
                     ? entry.features
                     : entry.features.slice(0, 4);
+
+                  const waMessage = `Hi Cardilac Garage, I'd like to enquire about ${entry.title}`;
+                  const waUrl = `https://wa.me/917479797965?text=${encodeURIComponent(waMessage)}`;
 
                   return (
                     <article
@@ -145,6 +154,38 @@ export function PricingAccordionGroup({
                           </p>
                         ) : null}
 
+                        {/* Pricing details */}
+                        {entry.pricingType === "tiers" && entry.tiers ? (
+                          <div className="mt-3.5 border-t border-[#292932] pt-3">
+                            <span className="text-[10px] font-semibold tracking-wider text-[#A1A1AA] uppercase">
+                              Rates by Vehicle Size:
+                            </span>
+                            <div className="mt-2 grid grid-cols-5 gap-1.5 text-center">
+                              {entry.tiers.map((t) => (
+                                <div
+                                  key={t.size}
+                                  className="rounded-md border border-[#292932] bg-[#111116] py-1.5 px-1"
+                                >
+                                  <div className="text-[10px] font-bold text-[#A1A1AA]">
+                                    {t.size}
+                                  </div>
+                                  <div className="text-[11px] font-extrabold text-white">
+                                    ₹{t.price}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ) : entry.flatPriceLabel ? (
+                          <div className="mt-3 border-t border-[#292932] pt-2 text-xs font-bold text-[#E81CFF]">
+                            {entry.flatPriceLabel}
+                          </div>
+                        ) : entry.rangeMin && entry.rangeMax ? (
+                          <div className="mt-3 border-t border-[#292932] pt-2 text-xs font-bold text-[#E81CFF]">
+                            From ₹{entry.rangeMin.toLocaleString("en-IN")} – ₹{entry.rangeMax.toLocaleString("en-IN")}
+                          </div>
+                        ) : null}
+
                         {/* Inclusions Checklist */}
                         {entry.features.length > 0 ? (
                           <div className="mt-4 space-y-1.5 border-t border-[#292932]/70 pt-3">
@@ -165,8 +206,9 @@ export function PricingAccordionGroup({
                             {entry.features.length > 4 ? (
                               <button
                                 type="button"
+                                aria-expanded={showAllInclusions}
                                 onClick={() => toggleFeatures(entry.id)}
-                                className="mt-1 cursor-pointer text-[11px] font-semibold text-[#E81CFF] hover:underline"
+                                className="mt-2 inline-flex items-center text-[11px] font-semibold text-[#E81CFF] hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E81CFF]"
                               >
                                 {showAllInclusions
                                   ? "Show fewer inclusions"
@@ -177,14 +219,16 @@ export function PricingAccordionGroup({
                         ) : null}
                       </div>
 
-                      {/* Action CTA */}
+                      {/* Action CTA: Enquire on WhatsApp */}
                       <div className="mt-5 border-t border-[#292932] pt-4">
                         <a
-                          href={BUSINESS_INFO.phoneHref}
-                          className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#A020F0]/50 bg-[#17171F] px-4 py-2.5 text-xs font-bold text-white transition-all hover:border-[#E81CFF] hover:bg-[#A020F0] hover:shadow-[0_0_20px_-4px_rgba(160,32,240,0.6)]"
+                          href={waUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#A020F0]/50 bg-[#17171F] px-4 py-2.5 text-xs font-bold text-white transition-all hover:border-[#25D366] hover:bg-[#25D366]/20 hover:text-[#25D366] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E81CFF]"
                         >
-                          <Phone className="h-4 w-4 text-[#E81CFF]" />
-                          <span>Call to Book: {entry.title}</span>
+                          <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                          <span>Enquire on WhatsApp</span>
                         </a>
                       </div>
                     </article>
