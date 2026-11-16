@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         url: "/images/hero-studio.jpg",
         width: 1408,
         height: 768,
-        alt: "Cardilac Garage Automotive Repair and Detailing Studio in Alappuzha",
+        alt: "Cardilac Garage Car Detailing and Protection Studio in Alappuzha",
       },
     ],
   },
@@ -63,10 +63,10 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": ["AutoRepair", "AutoWash"],
+    "@type": "AutoWash",
     name: BUSINESS_INFO.displayName,
     legalName: BUSINESS_INFO.legalRegisteredName,
-    alternateName: ["Cardilac", "Cardilac Garage Workshop"],
+    alternateName: ["Cardilac", "Cardilac Garage Detailing Studio"],
     url: `https://${BUSINESS_INFO.domain}`,
     description: BUSINESS_INFO.seo.description,
     logo: `https://${BUSINESS_INFO.domain}${BUSINESS_INFO.logos.emblem}`,

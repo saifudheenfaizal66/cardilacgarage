@@ -6,7 +6,7 @@ export const BUSINESS_INFO = {
   displayName: "Cardilac Garage",
   domain: "cardilacgarage.com",
   websiteUrl: "https://cardilacgarage.com",
-  tagline: "Professional Automotive Repair, Mechanical Maintenance & Premium Detailing Studio",
+  tagline: "Professional Car Detailing, Coating & Protection Studio",
   locationShort: "Ambalapuzha, Alappuzha",
 
   // Official Legal Disclosure Statement
@@ -15,7 +15,7 @@ export const BUSINESS_INFO = {
   metaVerificationNotice:
     "Cardilac Garage is operated under our registered business Cardilac.",
 
-  // Physical Workshop / Business Address
+  // Physical Studio / Business Address
   address: {
     line1: "Valappuzha / Valanjavazhy Junction, Ambalapuzha",
     line2: "Vandanam, Alappuzha, Kerala 688005, India",
@@ -70,13 +70,13 @@ export const BUSINESS_INFO = {
   referenceMetrics: {
     instagramFollowers: "1,087+",
     instagramPosts: "100+",
-    disclaimer: "Verified Workshop Profile",
+    disclaimer: "Verified Studio Profile",
   },
 
   seo: {
-    title: "Cardilac Garage | Official Automotive Repair, Maintenance & Detailing Studio",
+    title: "Cardilac Garage | Car Detailing, Coating & Protection Studio",
     description:
-      "Cardilac Garage is operated under our registered business Cardilac. Professional automotive repair, mechanical maintenance, ceramic coating, PPF, and garage care at cardilacgarage.com in Alappuzha, Kerala.",
+      "Cardilac Garage is operated under our registered business Cardilac. Professional car detailing, coating and protection studio in Alappuzha, Kerala.",
   },
 } as const;
 
@@ -106,7 +106,7 @@ export function buildWhatsAppUrl(options: WhatsAppEnquiryOptions = {}): string {
       "I would like to enquire about your Vehicle Pickup & Delivery service."
     );
   } else {
-    lines.push("I would like to enquire about your automotive repair and garage services.");
+    lines.push("I would like to enquire about your car detailing and protection services.");
   }
 
   lines.push("");

@@ -6,15 +6,15 @@ import { ShieldCheck, Truck, Layers, Sparkles } from "lucide-react";
 const HIGHLIGHTS = [
   {
     icon: ShieldCheck,
-    value: "Certified Protection",
-    label: "Ceramic & Graphene Studio",
-    note: "9H & 10H Multi-Year Paint Protection",
+    value: "Ceramic & Graphene",
+    label: "Paint Protection Studio",
+    note: "Russian brand graphene & borophene coatings",
   },
   {
     icon: Sparkles,
-    value: "Paint Correction",
-    label: "Precision Machine Polishing",
-    note: "Swirl removal & showroom mirror finish",
+    value: "Car Polishing",
+    label: "Single-Step Machine Polish",
+    note: "Gloss enhancement & paint revive",
   },
   {
     icon: Truck,
@@ -26,7 +26,7 @@ const HIGHLIGHTS = [
     icon: Layers,
     value: "Tailored Packages",
     label: "Precision Detailing Scope",
-    note: "Engineered from motorcycles to SUVs",
+    note: "Structured care from bikes to XXL vehicles",
   },
 ];
 

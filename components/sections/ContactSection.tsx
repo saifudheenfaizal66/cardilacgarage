@@ -36,7 +36,7 @@ export function ContactSection() {
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#E81CFF]/40 bg-[#17171F] shadow-[0_0_20px_-6px_rgba(232,28,255,0.4)]">
                     <img
                       src={BUSINESS_INFO.logos.emblem}
-                      alt="Cardilac Garage emblem"
+                      alt="Cardilac Garage logo"
                       className="h-8 w-8 object-contain"
                     />
                   </div>
@@ -45,7 +45,7 @@ export function ContactSection() {
                       {BUSINESS_INFO.displayName}
                     </h3>
                     <p className="mt-0.5 text-xs font-medium text-[#A1A1AA]">
-                      Automotive Repair &amp; Detailing Studio · Alappuzha
+                      Detailing, Coating &amp; Protection Studio · Alappuzha
                     </p>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Google Maps & Workshop Guarantees */}
+          {/* Right Column: Google Maps & Studio Standards */}
           <div className="w-full min-w-0 space-y-6 lg:col-span-6">
             {/* Embedded Google Map */}
             <div className="w-full overflow-hidden rounded-2xl border border-[#292932] bg-[#111116] shadow-lg">
@@ -168,7 +168,7 @@ export function ContactSection() {
               <div className="rounded-xl border border-[#292932] bg-[#111116] p-3.5 text-center">
                 <ShieldCheck className="mx-auto h-5 w-5 text-[#E81CFF]" />
                 <div className="mt-2 text-xs font-bold text-white">Genuine Materials</div>
-                <div className="mt-0.5 text-[10px] text-[#A1A1AA]">3M &amp; Gareware</div>
+                <div className="mt-0.5 text-[10px] text-[#A1A1AA]">3M &amp; Garware</div>
               </div>
               <div className="rounded-xl border border-[#292932] bg-[#111116] p-3.5 text-center">
                 <Truck className="mx-auto h-5 w-5 text-[#A020F0]" />
@@ -178,7 +178,7 @@ export function ContactSection() {
               <div className="rounded-xl border border-[#292932] bg-[#111116] p-3.5 text-center">
                 <Sparkles className="mx-auto h-5 w-5 text-[#E81CFF]" />
                 <div className="mt-2 text-xs font-bold text-white">Expert Team</div>
-                <div className="mt-0.5 text-[10px] text-[#A1A1AA]">Certified Detailing</div>
+                <div className="mt-0.5 text-[10px] text-[#A1A1AA]">Detailing Studio</div>
               </div>
             </div>
           </div>

@@ -136,7 +136,7 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
             <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#E81CFF]/50 bg-[#111116] shadow-[0_0_20px_-4px_rgba(232,28,255,0.4)]">
               <img
                 src={BUSINESS_INFO.logos.emblem}
-                alt="Cardilac monogram emblem"
+                alt="Cardilac Garage logo"
                 className="h-7 w-7 object-contain"
               />
             </div>
@@ -178,36 +178,36 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
                 className="w-full appearance-none rounded-lg border border-[#292932] bg-[#111116] px-4 py-3 pr-10 text-sm font-medium text-white focus:border-[#A020F0] focus:ring-1 focus:ring-[#A020F0] focus:outline-none"
               >
                 <optgroup label="Car Wash Packages">
-                  <option value="Basic Car Wash">Basic Car Wash (Foam + Interior Vacuum)</option>
-                  <option value="Executive Car Wash">Executive Car Wash (Deep Underbody + Hydrophobic)</option>
-                  <option value="Premium Ceramic Wash">Premium Ceramic Wash (SiO2 Hydrophobic Gloss)</option>
+                  <option value="Basic Car Wash">Basic Wash</option>
+                  <option value="Executive Car Wash">Executive Wash</option>
+                  <option value="Premium Ceramic Wash">Premium / Ceramic Wash</option>
                 </optgroup>
                 <optgroup label="Paint Protection & Coatings">
-                  <option value="1-Year Ceramic Coating">1-Year Ceramic Coating</option>
-                  <option value="3-Year Ceramic Coating (9H)">3-Year Ceramic Coating (9H Matrix)</option>
-                  <option value="5-Year Graphene Coating (10H)">5-Year Graphene Coating (10H Hardness)</option>
-                  <option value="7-Year Borophene Coating">7-Year Borophene Coating</option>
-                  <option value="PPF Paint Protection Film">PPF Paint Protection Film</option>
+                  <option value="Ceramic Coating">Ceramic Coating</option>
+                  <option value="Graphene Coating">Graphene Coating (Russian Brand)</option>
+                  <option value="Borophene Coating">Borophene Coating (Self Healing)</option>
+                  <option value="PPF Paint Protection Film">PPF (Garware)</option>
+                  <option value="Antic Layer">Antic Layer</option>
                 </optgroup>
-                <optgroup label="Polishing & Paint Correction">
-                  <option value="Single Step Paint Polish">Single Step Paint Polish</option>
-                  <option value="2-Step Paint Correction">2-Step Paint Correction</option>
-                  <option value="Ceramic Polishing">Ceramic Polishing (Compound Rubbing)</option>
-                </optgroup>
-                <optgroup label="Interior & Specialty Detailing">
-                  <option value="Deep Interior Spa & Steam">Deep Interior Spa &amp; Steam Cleaning</option>
-                  <option value="Engine Bay Detailing">Engine Bay Dressing &amp; Detailing</option>
+                <optgroup label="Polishing & Protective Treatments">
+                  <option value="Car Polishing (single step)">Car Polishing (single step)</option>
+                  <option value="Ceramic Polishing with Graphene Waxing">Ceramic Polishing with Graphene Waxing</option>
+                  <option value="Underbody Coating">Underbody Coating (3M / Turtle Wax)</option>
+                  <option value="Silencer Coating">Silencer Coating (Turtle Wax)</option>
                   <option value="Headlight Restoration">Headlight Restoration</option>
-                  <option value="Underbody & Silencer Anti-Rust">Underbody &amp; Silencer Anti-Rust</option>
+                  <option value="Tail Lamp Tinting">Tail Lamp Tinting</option>
+                  <option value="Engine Bay Deep Cleaning">Engine Bay Deep Cleaning</option>
                 </optgroup>
-                <optgroup label="Seat Covers & Accessories">
-                  <option value="Seat Covers (Feno / Napa / Porsche)">Seat Covers (Feno / Napa / Porsche)</option>
-                  <option value="Sun Control Cooling Film">Sun Control Cooling Film (Garware 50% / 35%)</option>
-                  <option value="7D Luxury Floor Mats">7D Luxury Floor Mats</option>
+                <optgroup label="Interior & Seat Covers">
+                  <option value="Interior Deep Cleaning">Interior Deep Cleaning</option>
+                  <option value="Feno Leather Seat Covers">Feno Leather Seat Covers</option>
+                  <option value="Napa Leather Seat Covers">Napa Leather Seat Covers</option>
+                  <option value="Porsche Leather Seat Covers">Porsche Leather Seat Covers</option>
+                  <option value="Cooling Film">Cooling Film (50% / 35%)</option>
                 </optgroup>
                 <optgroup label="Two-Wheeler Services">
-                  <option value="Two-Wheeler Detailed Wash">Two-Wheeler Detailed Wash</option>
-                  <option value="Two-Wheeler Ceramic Coating">Two-Wheeler Ceramic Coating</option>
+                  <option value="Basic Bike Wash">Basic Bike Wash</option>
+                  <option value="Detailed Bike Wash">Detailed Bike Wash</option>
                 </optgroup>
                 <option value="General Studio Consultation">General Studio Consultation / Custom Quote</option>
               </select>

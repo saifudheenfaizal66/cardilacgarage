@@ -78,7 +78,7 @@ export function HeroSection() {
           <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#A020F0]/30 bg-[#12121A]/80 px-3.5 py-1.5 backdrop-blur-md">
             <span className="h-1.5 w-1.5 rounded-full bg-[#E81CFF] shadow-[0_0_8px_#E81CFF]" aria-hidden="true" />
             <span className="text-[11px] font-bold tracking-[0.25em] text-[#E81CFF] uppercase sm:text-xs">
-              Cardilac Garage &bull; Repair &middot; Detailing &middot; Protection
+              Cardilac Garage &bull; Detailing &middot; Coating &middot; Protection
             </span>
           </div>
 
@@ -92,7 +92,7 @@ export function HeroSection() {
 
           {/* One-Line Subcopy */}
           <p className="mt-4 max-w-2xl text-[clamp(0.95rem,2.5vw,1.125rem)] leading-relaxed text-[#C4C4CC]">
-            Precision automotive repair, mechanical maintenance, ceramic coatings, and tailored interior detailing in Alappuzha.
+            Professional car detailing, coating and protection studio in Alappuzha.
           </p>
 
           {/* 2 Primary CTAs */}

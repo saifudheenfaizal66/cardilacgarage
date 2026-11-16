@@ -37,7 +37,7 @@ export function MetaVerificationDisclosure() {
           </h2>
           <p className="mt-3 max-w-2xl text-sm text-[#A1A1AA] leading-relaxed">
             This official public disclosure confirms the legal registration, operating trade name,
-            registered workshop location, and contact details for Meta Business Verification reviewers.
+            registered studio location, and contact details for Meta Business Verification reviewers.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export function MetaVerificationDisclosure() {
                 {BUSINESS_INFO.operatingBrandName}
               </div>
               <p className="mt-1.5 text-xs text-[#C4C4CC] leading-relaxed">
-                Primary customer-facing brand, workshop facility name, and commercial operating trade name.
+                Primary customer-facing brand, studio facility name, and commercial operating trade name.
               </p>
             </div>
 
@@ -138,20 +138,20 @@ export function MetaVerificationDisclosure() {
                 </div>
               </div>
               <p className="mt-1 text-xs text-[#71717A]">
-                Direct workshop lines for official reviewer checks and customer desk.
+                Direct studio lines for official reviewer checks and customer desk.
               </p>
             </div>
           </div>
 
           {/* ── ADDRESS & OPERATIONS BANNER ── */}
           <div className="mt-8 grid gap-6 border-t border-[#292932] pt-6 lg:grid-cols-12 lg:items-center">
-            {/* Workshop Address */}
+            {/* Studio Address */}
             <div className="lg:col-span-7">
               <div className="flex items-start gap-3">
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#E81CFF]" />
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-[#A1A1AA]">
-                    Official Workshop / Registered Business Address
+                    Official Studio / Registered Business Address
                   </div>
                   <p className="mt-1 text-sm font-semibold text-white leading-relaxed">
                     {BUSINESS_INFO.address.full}
@@ -181,27 +181,27 @@ export function MetaVerificationDisclosure() {
             </div>
           </div>
 
-          {/* ── SCOPE OF PROFESSIONAL GARAGE & AUTOMOTIVE SERVICES ── */}
+          {/* ── SCOPE OF PROFESSIONAL GARAGE & DETAILING SERVICES ── */}
           <div className="mt-8 rounded-xl border border-[#292932] bg-[#0E0E14] p-5">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E81CFF]">
               <Car className="h-4 w-4" />
-              <span>Registered Business Services &amp; Workshop Capabilities</span>
+              <span>Registered Business Services &amp; Studio Capabilities</span>
             </div>
             <p className="mt-1.5 text-xs text-[#A1A1AA]">
-              Cardilac Garage operates as a full-service automotive repair, mechanical maintenance, diagnostic, and vehicle detailing facility providing:
+              Cardilac Garage operates as a professional car detailing, coating and protection studio providing:
             </p>
 
             <div className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 text-xs text-[#D4D4D8]">
               {[
-                "Periodic Vehicle Maintenance & Synthetic Oil Services",
-                "Computerized OBD-II Engine & Telemetry Diagnostics",
-                "Brake System Servicing, Caliper Overhauls & Disc Machining",
-                "Automotive Air Conditioning (AC) Leak Test & Refrigerant Recharge",
-                "Suspension Bushing, Shock Absorber & Steering Repairs",
-                "Automotive Electricals, Alternator & Battery Diagnostics",
-                "High-Grade Ceramic, Graphene & Borophene Paint Coatings",
-                "Precision Paint Protection Film (PPF) Installation",
-                "Professional Snow Foam Wash & Comprehensive Detailing",
+                "Ceramic, Graphene & Borophene Paint Coatings",
+                "Precision Garware Paint Protection Film (PPF) Installation",
+                "Antic Protective Layer Application",
+                "Single-Step Car Machine Polishing",
+                "Ceramic Polishing with Graphene Waxing",
+                "3M & Turtle Wax Underbody & Silencer Coatings",
+                "Professional Snow Foam & Ceramic Car Washes",
+                "Two-Wheeler Basic & Detailed Washes",
+                "Custom Feno, Napa & Porsche Leather Seat Covers",
               ].map((service) => (
                 <div key={service} className="flex items-center gap-2">
                   <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#E81CFF]" />

@@ -41,7 +41,7 @@ const REASONS = [
     icon: Award,
     title: "Quality Materials",
     description:
-      "Trusted products including 3M, Turtle Wax, Gareware PPF, and tailored Feno, Napa & Porsche leather upholstery.",
+      "Trusted products including 3M, Turtle Wax, Garware PPF, and tailored Feno, Napa & Porsche leather upholstery.",
   },
   {
     icon: Truck,
@@ -85,7 +85,7 @@ export function WhyChooseUs() {
         <SectionHeading
           eyebrow="The Cardilac Standard"
           title="WHY VEHICLE OWNERS CHOOSE CARDILAC GARAGE."
-          description="Focused craftsmanship, trusted coating chemistry, and transparent pricing built around long-term vehicle preservation."
+          description="Focused craftsmanship and trusted coating chemistry built around long-term vehicle preservation."
           align="center"
         />
 

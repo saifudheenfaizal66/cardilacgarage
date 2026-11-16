@@ -8,12 +8,6 @@ import {
   AlertTriangle,
   Phone,
   MessageCircle,
-  Cpu,
-  Disc,
-  Snowflake,
-  Cog,
-  Zap,
-  Wrench,
 } from "lucide-react";
 import { ServiceItem } from "@/data/services";
 import { PRICING_DATA } from "@/data/pricing";
@@ -82,19 +76,6 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
   const whatsappMessage = `Hi Cardilac Garage, I'd like to enquire about ${service.title}`;
   const whatsappUrl = `https://wa.me/917479797965?text=${encodeURIComponent(whatsappMessage)}`;
 
-  const RepairIconComponent =
-    service.repairIcon === "cpu"
-      ? Cpu
-      : service.repairIcon === "disc"
-      ? Disc
-      : service.repairIcon === "snowflake"
-      ? Snowflake
-      : service.repairIcon === "cog"
-      ? Cog
-      : service.repairIcon === "zap"
-      ? Zap
-      : Wrench;
-
   return (
     <div
       role="dialog"
@@ -109,76 +90,42 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Visual */}
-        {service.isNeutralRepairCard || !service.image ? (
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-[#1C1428] via-[#111116] to-[#0A0A0E] flex flex-col justify-end p-6 border-b border-[#292932]">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 opacity-20 bg-[radial-gradient(#A020F0_1px,transparent_1px)] [background-size:16px_16px]"
-            />
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={onClose}
-              aria-label="Close service details"
-              className="absolute top-4 right-4 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[#292932] bg-[#09090D]/90 text-white transition-colors hover:border-[#A020F0] hover:bg-[#17171F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E81CFF]"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <div className="relative flex items-center gap-3 mb-2">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#A020F0]/50 bg-[#171724]">
-                <RepairIconComponent className="h-6 w-6 text-[#E81CFF]" />
-              </div>
-              <div>
-                <span className="text-[11px] font-semibold tracking-[0.2em] text-[#A020F0] uppercase">
-                  {service.categoryLabel}
-                </span>
-                <h3
-                  id="service-modal-title"
-                  className="font-display text-2xl font-bold text-white sm:text-3xl"
-                >
-                  {service.title}
-                </h3>
-              </div>
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#09090D]">
+          <img
+            src={service.image}
+            alt={service.imageAlt || service.title}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-[#111116]/40 to-transparent" />
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            aria-label="Close service details"
+            className="absolute top-4 right-4 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[#292932] bg-[#09090D]/90 text-white transition-colors hover:border-[#A020F0] hover:bg-[#17171F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E81CFF]"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <div className="absolute bottom-4 left-5 right-5 flex flex-wrap items-end justify-between gap-2">
+            <div>
+              <span className="text-[11px] font-semibold tracking-[0.2em] text-[#E81CFF] uppercase">
+                {service.categoryLabel}
+              </span>
+              <h3
+                id="service-modal-title"
+                className="mt-1 font-display text-2xl font-bold text-white sm:text-3xl"
+              >
+                {service.title}
+              </h3>
             </div>
+            {service.warrantyBadge ? (
+              <span className="inline-flex items-center gap-1.5 rounded-md border border-[#A020F0]/50 bg-[#09090D]/90 px-3 py-1 text-xs font-semibold text-white">
+                <ShieldCheck className="h-3.5 w-3.5 text-[#E81CFF]" />
+                {service.warrantyBadge}
+              </span>
+            ) : null}
           </div>
-        ) : (
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#09090D]">
-            <img
-              src={service.image}
-              alt={service.imageAlt || service.title}
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-[#111116]/40 to-transparent" />
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={onClose}
-              aria-label="Close service details"
-              className="absolute top-4 right-4 inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[#292932] bg-[#09090D]/90 text-white transition-colors hover:border-[#A020F0] hover:bg-[#17171F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E81CFF]"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <div className="absolute bottom-4 left-5 right-5 flex flex-wrap items-end justify-between gap-2">
-              <div>
-                <span className="text-[11px] font-semibold tracking-[0.2em] text-[#E81CFF] uppercase">
-                  {service.categoryLabel}
-                </span>
-                <h3
-                  id="service-modal-title"
-                  className="mt-1 font-display text-2xl font-bold text-white sm:text-3xl"
-                >
-                  {service.title}
-                </h3>
-              </div>
-              {service.warrantyBadge ? (
-                <span className="inline-flex items-center gap-1.5 rounded-md border border-[#A020F0]/50 bg-[#09090D]/90 px-3 py-1 text-xs font-semibold text-white">
-                  <ShieldCheck className="h-3.5 w-3.5 text-[#E81CFF]" />
-                  {service.warrantyBadge}
-                </span>
-              ) : null}
-            </div>
-          </div>
-        )}
+        </div>
 
         {/* Modal Body */}
         <div className="space-y-6 p-5 sm:p-6">
@@ -189,7 +136,7 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
           {/* Key Inclusions & Scope */}
           <div>
             <h4 className="text-xs font-semibold tracking-[0.18em] text-white uppercase">
-              Key Highlights &amp; Inclusions
+              Key Inclusions &amp; Features
             </h4>
             <ul className="mt-3 space-y-2">
               {service.highlights.map((item) => (
@@ -208,7 +155,7 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
           {matchedPricing.length > 0 && (
             <div className="space-y-3">
               <h4 className="text-xs font-semibold tracking-[0.18em] text-white uppercase">
-                Package Scope &amp; Pricing
+                Package Scope &amp; Rates
               </h4>
               {matchedPricing.map((entry) => (
                 <div
@@ -216,7 +163,12 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
                   className="rounded-xl border border-[#292932] bg-[#17171F] p-4"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h5 className="text-sm font-bold text-white">{entry.title}</h5>
+                    <div>
+                      <h5 className="text-sm font-bold text-white">{entry.title}</h5>
+                      {entry.subtitle ? (
+                        <p className="text-xs text-[#E81CFF]">{entry.subtitle}</p>
+                      ) : null}
+                    </div>
                     {entry.warrantyBadge ? (
                       <span className="text-xs font-semibold text-[#E81CFF]">
                         {entry.warrantyBadge}
@@ -255,12 +207,26 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
                       ₹{entry.rangeMin.toLocaleString("en-IN")} – ₹{entry.rangeMax.toLocaleString("en-IN")}
                     </div>
                   ) : null}
+
+                  {entry.variablePricingNote ? (
+                    <div className="mt-2 flex items-start gap-1.5 text-xs text-[#A1A1AA]">
+                      <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A020F0]" />
+                      <span>{entry.variablePricingNote}</span>
+                    </div>
+                  ) : null}
+
+                  {entry.clientConfirmationNote ? (
+                    <div className="mt-2 flex items-start gap-1.5 text-xs text-amber-200/90">
+                      <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-400" />
+                      <span>{entry.clientConfirmationNote}</span>
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>
           )}
 
-          {/* Price Notes / Disclosures */}
+          {/* Price Notes / Disclosures on Service level */}
           {(service.variableNote || service.confirmationNote) && (
             <div className="space-y-2 rounded-xl border border-[#A020F0]/30 bg-[#A020F0]/5 p-4 text-xs text-[#D4D4D8]">
               {service.variableNote ? (

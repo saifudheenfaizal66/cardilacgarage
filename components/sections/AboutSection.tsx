@@ -2,47 +2,40 @@
 
 import React from "react";
 import {
-  Wrench,
   ShieldCheck,
   Droplets,
   Layers,
   Award,
   Truck,
-  Cpu,
   Shield,
+  Thermometer,
 } from "lucide-react";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 const PILLARS = [
   {
-    icon: Wrench,
-    title: "Mechanical Repair & Diagnostics",
-    description:
-      "Certified automotive mechanical repair, computerized OBD-II scanning, oil & fluid servicing, and brake/suspension overhauls.",
-  },
-  {
     icon: ShieldCheck,
     title: "Advanced Paint Protection",
     description:
-      "Multi-tier 9H Ceramic, Graphene, Borophene coatings, and 175–195 micron self-healing PPF engineered to shield clear coat.",
+      "Ceramic, Graphene, and Borophene coatings, alongside 175–195 micron Garware PPF engineered to shield factory paint.",
   },
   {
     icon: Droplets,
     title: "Professional Detailing & Cleaning",
     description:
-      "Structured multi-step wash procedures covering snow foam, under-chassis rinsing, wheel arches, iron decontamination, and interior steam care.",
+      "Structured multi-step wash procedures covering snow foam, under-chassis rinsing, wheel arches, iron & tar removal, and interior care.",
   },
   {
     icon: Layers,
     title: "Tailored Vehicle Care Packages",
     description:
-      "Engineered treatment packages calibrated for cars across S to XXL categories alongside specialized two-wheeler washes.",
+      "Treatment packages calibrated for cars across S to XXL categories alongside Basic and Detailed two-wheeler washes.",
   },
   {
     icon: Award,
-    title: "Certified Materials & Craftsmanship",
+    title: "Quality Materials & Craftsmanship",
     description:
-      "Authentic products including 3M, Turtle Wax, Gareware PPF, and custom-tailored Feno, Napa & Porsche leather seat upholstery.",
+      "Authentic products including 3M, Turtle Wax, Garware PPF, and custom Feno, Napa & Porsche leather seat upholstery.",
   },
   {
     icon: Truck,
@@ -54,27 +47,27 @@ const PILLARS = [
 
 const METRICS = [
   {
-    label: "OBD-II",
-    sub: "Computerized Scan",
-    desc: "Diagnostic ECU & sensor telemetry calibration",
-    icon: Cpu,
-  },
-  {
-    label: "9H / 10H",
-    sub: "Ceramic & Graphene",
-    desc: "Chemical, UV & scratch-resistant matrix",
-    icon: Shield,
-  },
-  {
-    label: "195µm",
-    sub: "Self-Healing PPF",
-    desc: "High-gloss thermoplastic urethane barrier",
+    label: "175–195µm",
+    sub: "Garware PPF",
+    desc: "Paint protection film thickness",
     icon: Layers,
   },
   {
+    label: "> 60°C",
+    sub: "Borophene Action",
+    desc: "Thermal scratch elimination temperature",
+    icon: Thermometer,
+  },
+  {
+    label: "5-Year",
+    sub: "Garware & Antic",
+    desc: "Warranty protection coverage",
+    icon: ShieldCheck,
+  },
+  {
     label: "100%",
-    sub: "Spotless Rinsing",
-    desc: "De-ionized water for streak-free paint finish",
+    sub: "Studio Detailing",
+    desc: "Surface washing & detailing care",
     icon: Droplets,
   },
 ];
@@ -89,7 +82,7 @@ export function AboutSection() {
         <SectionHeading
           eyebrow="The Cardilac Standard"
           title="WHY VEHICLE OWNERS CHOOSE CARDILAC GARAGE."
-          description="Cardilac Garage is Alappuzha's premier automotive workshop and detailing center, combining certified mechanical engineering with state-of-the-art paint protection and bespoke craftsmanship."
+          description="Cardilac Garage is Alappuzha's car detailing, coating and protection studio, combining precision paint protection with bespoke craftsmanship."
         />
 
         {/* 6 Unified Pillars in Responsive Grid (Rendered once, no duplicate DOM nodes) */}

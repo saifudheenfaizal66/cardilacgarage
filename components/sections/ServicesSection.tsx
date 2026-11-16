@@ -21,7 +21,6 @@ interface CategoryTabConfig {
 
 const CATEGORY_TABS: CategoryTabConfig[] = [
   { slug: "all", label: "All" },
-  { slug: "automotive-repair", label: "Repair" },
   { slug: "paint-protection", label: "Paint Protection" },
   { slug: "car-wash-cleaning", label: "Car Wash" },
   { slug: "polishing-protection", label: "Polishing" },

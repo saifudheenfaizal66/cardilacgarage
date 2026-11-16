@@ -31,7 +31,7 @@ export function PickupDelivery() {
               </h2>
 
               <p className="mt-4 text-sm leading-relaxed text-[#D4D4D8] sm:text-base">
-                Enjoy premium car washing, mechanical repair, and automotive detailing without leaving your home or office. We offer punctual doorstep vehicle pickup and delivery across Alappuzha.
+                Enjoy premium car washing, detailing, and paint protection without leaving your home or office. We offer punctual doorstep vehicle pickup and delivery across Alappuzha.
               </p>
 
               {/* Quick stats with Lucide SVG icons (no emojis) */}

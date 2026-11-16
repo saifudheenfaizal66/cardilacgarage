@@ -20,11 +20,11 @@ const FOOTER_NAV_LINKS = [
 ];
 
 const STUDIO_SERVICES = [
-  "Ceramic & Graphene 10H",
-  "Self-Healing PPF Wrapping",
-  "OBD-II Computerized Diagnostics",
-  "Executive De-Ionized Foam Wash",
-  "Interior Restoration & Detailing",
+  "Ceramic & Graphene Coating",
+  "Garware PPF Wrapping",
+  "Car Polishing (single step)",
+  "Executive & Ceramic Wash",
+  "Interior Deep Cleaning",
 ];
 
 export function Footer() {
@@ -56,13 +56,13 @@ export function Footer() {
               </div>
               <img
                 src={BUSINESS_INFO.logos.wordmarkLight}
-                alt="Cardilac Garage — Repair · Detailing · Protection"
+                alt="Cardilac Garage logo"
                 className="h-9 w-auto object-contain transition-all duration-200 group-hover:brightness-110 drop-shadow-[0_2px_10px_rgba(232,28,255,0.2)]"
               />
             </a>
 
             <p className="text-xs leading-relaxed text-[#71717A] max-w-sm">
-              Premier automotive repair, computerized diagnostics, scheduled mechanical maintenance, and certified ceramic &amp; PPF detailing studio in Alappuzha.
+              Premier car detailing, coating and protection studio in Alappuzha, specializing in ceramic and graphene coatings, Garware PPF, and precision vehicle detailing.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-[#A1A1AA]">
