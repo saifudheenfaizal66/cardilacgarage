@@ -76,7 +76,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 w-full overflow-hidden border-t border-[#292932] bg-[#09090D] py-16 sm:py-20 lg:py-24"
+      className="w-full overflow-hidden border-t border-[#292932] bg-[#09090D] py-16 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading

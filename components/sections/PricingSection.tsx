@@ -80,10 +80,10 @@ export function PricingSection() {
   return (
     <section
       id="packages"
-      className="scroll-mt-24 border-t border-[#292932] bg-[#09090D] py-16 lg:py-24"
+      className="relative border-t border-[#292932] bg-[#09090D] py-16 lg:py-24"
     >
       {/* Anchor alias for #pricing to preserve existing links */}
-      <span id="pricing" className="pointer-events-none absolute -mt-24 h-0 w-0" aria-hidden="true" />
+      <span id="pricing" className="pointer-events-none absolute top-0 h-0 w-0" aria-hidden="true" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">

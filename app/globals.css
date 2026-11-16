@@ -17,14 +17,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 84px;
+    scroll-padding-top: 90px;
     background-color: #09090D;
     color: #FFFFFF;
     color-scheme: dark;
-  }
-
-  section, [id] {
-    scroll-margin-top: 84px;
   }
 
   body {

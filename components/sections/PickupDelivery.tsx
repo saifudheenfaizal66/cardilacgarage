@@ -8,7 +8,7 @@ export function PickupDelivery() {
   return (
     <section
       id="pickup-delivery"
-      className="scroll-mt-24 relative overflow-hidden border-t border-[#292932] bg-[#111116] py-14 lg:py-20"
+      className="relative overflow-hidden border-t border-[#292932] bg-[#111116] py-14 lg:py-20"
     >
       {/* Ambient purple glow */}
       <div

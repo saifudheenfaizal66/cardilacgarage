@@ -109,10 +109,10 @@ export function Navbar() {
       if (drawerOpen) {
         setDrawerOpen(false);
         setTimeout(() => {
-          smoothScrollTo(targetId, 84);
+          smoothScrollTo(targetId, 90);
         }, 120);
       } else {
-        smoothScrollTo(targetId, 84);
+        smoothScrollTo(targetId, 90);
       }
     }
   };

@@ -21,7 +21,7 @@ export function HeroSection() {
 
   const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    smoothScrollTo("services", 84);
+    smoothScrollTo("services", 90);
   };
 
   return (
@@ -74,14 +74,6 @@ export function HeroSection() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl"
         >
-          {/* Eyebrow */}
-          <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#A020F0]/30 bg-[#12121A]/80 px-3.5 py-1.5 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#E81CFF] shadow-[0_0_8px_#E81CFF]" aria-hidden="true" />
-            <span className="text-[11px] font-bold tracking-[0.25em] text-[#E81CFF] uppercase sm:text-xs">
-              Cardilac Garage &bull; Detailing &middot; Coating &middot; Protection
-            </span>
-          </div>
-
           {/* Main Headline */}
           <h1 className="font-display font-extrabold tracking-tight text-white text-[clamp(2rem,6vw,4.25rem)] leading-[1.08] sm:leading-[1.05] break-words">
             Elevate Your Drive:

@@ -43,7 +43,7 @@ export function Footer() {
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
-                smoothScrollTo("home", 84);
+                smoothScrollTo("home", 90);
               }}
               className="inline-flex items-center gap-3 group focus-visible:outline-none"
             >
@@ -84,7 +84,7 @@ export function Footer() {
                     onClick={(e) => {
                       if (link.href.startsWith("#")) {
                         e.preventDefault();
-                        smoothScrollTo(link.href.replace("#", ""), 84);
+                        smoothScrollTo(link.href.replace("#", ""), 90);
                       }
                     }}
                     className="transition-colors hover:text-[#E81CFF]"

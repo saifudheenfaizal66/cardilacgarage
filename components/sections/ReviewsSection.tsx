@@ -7,7 +7,7 @@ export function ReviewsSection() {
   return (
     <section
       id="reviews"
-      className="scroll-mt-24 border-t border-[#292932] bg-[#09090D] py-16 lg:py-24"
+      className="border-t border-[#292932] bg-[#09090D] py-16 lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 rounded-2xl border border-[#292932] bg-[#111116] p-6 sm:p-10 lg:grid-cols-12">
