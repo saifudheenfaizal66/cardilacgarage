@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Truck,
   Sparkles,
+  Mail,
 } from "lucide-react";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { BUSINESS_INFO } from "@/data/business";
@@ -98,6 +99,24 @@ export function ContactSection() {
                         >
                           {BUSINESS_INFO.secondaryPhoneDisplay}{" "}
                           <span className="text-[10px] font-normal text-[#A1A1AA]">(Secondary)</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Direct Email Desk */}
+                  <div className="flex items-start gap-3.5">
+                    <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#E81CFF]" />
+                    <div>
+                      <div className="text-[11px] font-semibold tracking-wider text-[#A1A1AA] uppercase">
+                        Official Email Desk
+                      </div>
+                      <div className="mt-1">
+                        <a
+                          href={`mailto:${BUSINESS_INFO.email}`}
+                          className="font-display text-sm font-semibold text-white transition-colors hover:text-[#E81CFF]"
+                        >
+                          {BUSINESS_INFO.email}
                         </a>
                       </div>
                     </div>

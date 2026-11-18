@@ -4,8 +4,8 @@ export const BUSINESS_INFO = {
   operatingBrandName: "Cardilac Garage",
   name: "CARDILAC GARAGE",
   displayName: "Cardilac Garage",
-  domain: "cardilacgarage.com",
-  websiteUrl: "https://cardilacgarage.com",
+  domain: "cardilac.com",
+  websiteUrl: "https://cardilac.com",
   tagline: "Professional Car Detailing, Coating & Protection Studio",
   locationShort: "Ambalapuzha, Alappuzha",
 
@@ -17,9 +17,9 @@ export const BUSINESS_INFO = {
 
   // Physical Studio / Business Address
   address: {
-    line1: "Valappuzha / Valanjavazhy Junction, Ambalapuzha",
+    line1: "Valanjavazhy Junction, Ambalapuzha",
     line2: "Vandanam, Alappuzha, Kerala 688005, India",
-    full: "Valappuzha / Valanjavazhy Junction, Ambalapuzha, Vandanam, Alappuzha, Kerala 688005, India",
+    full: "Valanjavazhy Junction, Ambalapuzha, Vandanam, Alappuzha, Kerala 688005, India",
     city: "Alappuzha",
     state: "Kerala",
     postalCode: "688005",
@@ -47,7 +47,8 @@ export const BUSINESS_INFO = {
     },
   ],
 
-  email: "contact@cardilacgarage.com",
+  email: "cardilacsocial@gmail.com",
+  emailHref: "mailto:cardilacsocial@gmail.com",
 
   whatsappNumber: "917479797965",
   whatsappBaseUrl: "https://wa.me/917479797965",

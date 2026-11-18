@@ -72,9 +72,10 @@ export default function RootLayout({
     logo: `https://${BUSINESS_INFO.domain}${BUSINESS_INFO.logos.emblem}`,
     image: `https://${BUSINESS_INFO.domain}/images/hero-studio.jpg`,
     telephone: [BUSINESS_INFO.phoneDisplay, BUSINESS_INFO.secondaryPhoneDisplay],
+    email: BUSINESS_INFO.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Valappuzha / Valanjavazhy Junction, Ambalapuzha, Vandanam",
+      streetAddress: "Valanjavazhy Junction, Ambalapuzha, Vandanam",
       addressLocality: "Alappuzha",
       addressRegion: "Kerala",
       postalCode: "688005",

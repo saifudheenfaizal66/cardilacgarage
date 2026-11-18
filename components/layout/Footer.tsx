@@ -7,6 +7,7 @@ import {
   Clock,
   MapPin,
   ChevronUp,
+  Mail,
 } from "lucide-react";
 import { BUSINESS_INFO } from "@/data/business";
 import { smoothScrollTo } from "@/components/common/scrollHelper";
@@ -67,7 +68,7 @@ export function Footer() {
 
             <div className="flex items-center gap-2 text-xs text-[#A1A1AA]">
               <MapPin className="h-3.5 w-3.5 text-[#E81CFF] shrink-0" />
-              <span>Valappuzha / Vandanam, Alappuzha, Kerala</span>
+              <span>Valanjavazhy, Vandanam, Alappuzha, Kerala</span>
             </div>
           </div>
 
@@ -129,6 +130,15 @@ export function Footer() {
                   {BUSINESS_INFO.phoneDisplay}
                 </a>
               </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 text-[#E81CFF] shrink-0" />
+                <a
+                  href={`mailto:${BUSINESS_INFO.email}`}
+                  className="text-[11px] text-[#A1A1AA] hover:text-[#E81CFF] transition-colors"
+                >
+                  {BUSINESS_INFO.email}
+                </a>
+              </div>
             </div>
 
             {/* Quick Action Buttons */}
@@ -170,7 +180,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <span className="text-[#52525B]">
-              cardilacgarage.com
+              {BUSINESS_INFO.domain}
             </span>
             <button
               type="button"

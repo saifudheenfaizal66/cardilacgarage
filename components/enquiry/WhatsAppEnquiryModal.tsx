@@ -312,7 +312,7 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
                   Doorstep Pickup &amp; Delivery
                 </div>
                 <div className="text-[11px] text-[#A1A1AA]">
-                  Available across Valappuzha &amp; Alappuzha region
+                  Available across Valanjavazhy &amp; Alappuzha region
                 </div>
               </div>
             </div>

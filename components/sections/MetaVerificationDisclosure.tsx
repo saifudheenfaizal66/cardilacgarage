@@ -136,6 +136,15 @@ export function MetaVerificationDisclosure() {
                     {BUSINESS_INFO.secondaryPhoneDisplay}
                   </a>
                 </div>
+                <div className="pt-0.5">
+                  <span className="text-[11px] text-[#A1A1AA]">Email: </span>
+                  <a
+                    href={`mailto:${BUSINESS_INFO.email}`}
+                    className="text-xs font-bold text-[#E81CFF] hover:underline transition-colors"
+                  >
+                    {BUSINESS_INFO.email}
+                  </a>
+                </div>
               </div>
               <p className="mt-1 text-xs text-[#71717A]">
                 Direct studio lines for official reviewer checks and customer desk.
