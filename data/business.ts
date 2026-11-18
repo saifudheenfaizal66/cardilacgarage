@@ -29,8 +29,8 @@ export const BUSINESS_INFO = {
   // Contact Phone Numbers (Clearly visible in header & footer)
   phoneDisplay: "+91 74797 97965", // Phone 1
   phoneHref: "tel:+917479797965",
-  secondaryPhoneDisplay: "+91 74797 79740", // Phone 2
-  secondaryPhoneHref: "tel:+917479779740",
+  secondaryPhoneDisplay: "+91 74979 79740", // Phone 2
+  secondaryPhoneHref: "tel:+917497979740",
 
   phones: [
     {
@@ -41,9 +41,9 @@ export const BUSINESS_INFO = {
     },
     {
       label: "Phone 2",
-      display: "+91 74797 79740",
-      href: "tel:+917479779740",
-      whatsappUrl: "https://wa.me/917479779740",
+      display: "+91 74979 79740",
+      href: "tel:+917497979740",
+      whatsappUrl: "https://wa.me/917497979740",
     },
   ],
 
@@ -51,8 +51,8 @@ export const BUSINESS_INFO = {
 
   whatsappNumber: "917479797965",
   whatsappBaseUrl: "https://wa.me/917479797965",
-  secondaryWhatsappNumber: "917479779740",
-  secondaryWhatsappBaseUrl: "https://wa.me/917479779740",
+  secondaryWhatsappNumber: "917497979740",
+  secondaryWhatsappBaseUrl: "https://wa.me/917497979740",
 
   googleMapsUrl: "https://maps.app.goo.gl/xXSGSYeyGc1pdo4p9?g_st=aw",
   googleMapsEmbedUrl:
