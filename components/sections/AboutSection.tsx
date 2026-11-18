@@ -7,7 +7,6 @@ import {
   Layers,
   Award,
   Truck,
-  Shield,
   Thermometer,
 } from "lucide-react";
 import { SectionHeading } from "@/components/common/SectionHeading";
