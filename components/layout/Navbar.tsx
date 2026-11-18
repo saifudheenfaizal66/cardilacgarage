@@ -131,19 +131,19 @@ export function Navbar() {
         <a
           href="#home"
           onClick={(e) => handleLinkClick(e, "#home")}
-          aria-label="Cardilac Garage — Detailing · Coating · Protection"
+          aria-label="Cardilac — Detailing · Coating · Protection"
           className="group flex shrink-0 items-center gap-2.5 sm:gap-3.5 rounded-lg py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A020F0]"
         >
           <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#E81CFF]/45 bg-[#111116] shadow-[0_0_24px_-4px_rgba(232,28,255,0.45)] transition-transform duration-200 group-hover:scale-105 sm:h-12 sm:w-12">
             <img
               src={BUSINESS_INFO.logos.emblem}
-              alt="Cardilac Garage logo"
+              alt="Cardilac logo"
               className="h-7 w-7 object-contain sm:h-8 sm:w-8"
             />
           </div>
           <img
             src={BUSINESS_INFO.logos.wordmarkLight}
-            alt="Cardilac Garage logo"
+            alt="Cardilac logo"
             className="h-10 w-auto object-contain transition-all duration-200 group-hover:brightness-110 drop-shadow-[0_2px_12px_rgba(232,28,255,0.22)] sm:h-12 md:h-13"
           />
         </a>

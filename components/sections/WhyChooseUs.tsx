@@ -84,7 +84,7 @@ export function WhyChooseUs() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="The Cardilac Standard"
-          title="WHY VEHICLE OWNERS CHOOSE CARDILAC GARAGE."
+          title="WHY VEHICLE OWNERS CHOOSE CARDILAC."
           description="Focused craftsmanship and trusted coating chemistry built around long-term vehicle preservation."
           align="center"
         />

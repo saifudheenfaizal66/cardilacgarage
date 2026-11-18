@@ -15,7 +15,7 @@ export function ReviewsSection() {
             <SectionHeading
               eyebrow="Client Feedback"
               title="VERIFIED GOOGLE REVIEWS & STUDIO FEEDBACK."
-              description="Read authentic customer reviews and ratings directly on our official Google Business profile, or share your own experience after visiting Cardilac Garage."
+              description="Read authentic customer reviews and ratings directly on our official Google Business profile, or share your own experience after visiting Cardilac."
             />
           </div>
 
@@ -25,13 +25,13 @@ export function ReviewsSection() {
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#E81CFF]/45 bg-[#111116] shadow-[0_0_15px_-4px_rgba(232,28,255,0.4)]">
                   <img
                     src={BUSINESS_INFO.logos.emblem}
-                    alt="Cardilac Garage logo"
+                    alt="Cardilac logo"
                     className="h-8 w-8 object-contain"
                   />
                 </div>
                 <div>
                   <h3 className="font-display text-base font-bold text-white">
-                    Cardilac Garage on Google
+                    Cardilac on Google
                   </h3>
                   <div className="flex items-center gap-1.5 mt-0.5 text-xs text-[#A1A1AA]">
                     <MapPin className="h-3 w-3 text-[#E81CFF] shrink-0" />

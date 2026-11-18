@@ -31,7 +31,7 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
 
 /**
  * Studio showcase reference visuals.
- * Replace image paths with genuine Cardilac Garage client vehicle photos in /public/images/
+ * Replace image paths with genuine Cardilac client vehicle photos in /public/images/
  * as project photography becomes available.
  */
 export const GALLERY_ITEMS: GalleryItem[] = [

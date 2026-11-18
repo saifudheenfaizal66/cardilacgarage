@@ -85,7 +85,7 @@ export function PricingAccordionGroup({
             <div className="border-t border-[#292932] bg-[#0D0D12] p-4 sm:p-6">
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                 {entries.map((entry) => {
-                  const waMessage = `Hi Cardilac Garage, I'd like to enquire about ${entry.title}`;
+                  const waMessage = `Hi Cardilac, I'd like to enquire about ${entry.title}`;
                   const waUrl = `https://wa.me/917479797965?text=${encodeURIComponent(waMessage)}`;
 
                   return (

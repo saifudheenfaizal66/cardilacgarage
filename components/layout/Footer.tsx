@@ -51,13 +51,13 @@ export function Footer() {
               <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#E81CFF]/45 bg-[#111116] shadow-[0_0_20px_-4px_rgba(232,28,255,0.4)] transition-transform duration-200 group-hover:scale-105">
                 <img
                   src={BUSINESS_INFO.logos.emblem}
-                  alt="Cardilac Garage logo"
+                  alt="Cardilac logo"
                   className="h-7 w-7 object-contain"
                 />
               </div>
               <img
                 src={BUSINESS_INFO.logos.wordmarkLight}
-                alt="Cardilac Garage logo"
+                alt="Cardilac logo"
                 className="h-9 w-auto object-contain transition-all duration-200 group-hover:brightness-110 drop-shadow-[0_2px_10px_rgba(232,28,255,0.2)]"
               />
             </a>
@@ -175,7 +175,7 @@ export function Footer() {
         {/* Consolidated Bottom Copyright Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#24242D] pt-6 text-[11px] text-[#71717A] sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Cardilac Garage. Operated under registered business Cardilac. All Rights Reserved.
+            © {new Date().getFullYear()} Cardilac. All Rights Reserved.
           </p>
 
           <div className="flex items-center gap-4">

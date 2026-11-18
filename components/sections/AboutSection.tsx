@@ -80,8 +80,8 @@ export function AboutSection() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="The Cardilac Standard"
-          title="WHY VEHICLE OWNERS CHOOSE CARDILAC GARAGE."
-          description="Cardilac Garage is Alappuzha's car detailing, coating and protection studio, combining precision paint protection with bespoke craftsmanship."
+          title="WHY VEHICLE OWNERS CHOOSE CARDILAC."
+          description="Cardilac is Alappuzha's car detailing, coating and protection studio, combining precision paint protection with bespoke craftsmanship."
         />
 
         {/* 6 Unified Pillars in Responsive Grid (Rendered once, no duplicate DOM nodes) */}

@@ -73,7 +73,7 @@ export function ServiceDetails({ service, onClose }: ServiceDetailsProps) {
     service.pricingIds.includes(p.id)
   );
 
-  const whatsappMessage = `Hi Cardilac Garage, I'd like to enquire about ${service.title}`;
+  const whatsappMessage = `Hi Cardilac, I'd like to enquire about ${service.title}`;
   const whatsappUrl = `https://wa.me/917479797965?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (

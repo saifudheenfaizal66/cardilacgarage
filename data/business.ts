@@ -1,9 +1,9 @@
 export const BUSINESS_INFO = {
   // Official Business Identity for Meta Business Verification
   legalRegisteredName: "Cardilac",
-  operatingBrandName: "Cardilac Garage",
-  name: "CARDILAC GARAGE",
-  displayName: "Cardilac Garage",
+  operatingBrandName: "Cardilac",
+  name: "CARDILAC",
+  displayName: "Cardilac",
   domain: "cardilac.com",
   websiteUrl: "https://cardilac.com",
   tagline: "Professional Car Detailing, Coating & Protection Studio",
@@ -11,9 +11,9 @@ export const BUSINESS_INFO = {
 
   // Official Legal Disclosure Statement
   officialDisclosure:
-    "Cardilac Garage is operated under our registered business Cardilac.",
+    "Cardilac is an officially registered professional car detailing, coating and protection studio.",
   metaVerificationNotice:
-    "Cardilac Garage is operated under our registered business Cardilac.",
+    "Cardilac operates as an officially registered professional car detailing, coating and protection studio.",
 
   // Physical Studio / Business Address
   address: {
@@ -75,9 +75,9 @@ export const BUSINESS_INFO = {
   },
 
   seo: {
-    title: "Cardilac Garage | Car Detailing, Coating & Protection Studio",
+    title: "Cardilac | Car Detailing, Coating & Protection Studio",
     description:
-      "Cardilac Garage is operated under our registered business Cardilac. Professional car detailing, coating and protection studio in Alappuzha, Kerala.",
+      "Cardilac is an officially registered professional car detailing, coating and protection studio in Alappuzha, Kerala.",
   },
 } as const;
 
@@ -100,7 +100,7 @@ export function buildWhatsAppUrl(options: WhatsAppEnquiryOptions = {}): string {
     isPickupDelivery,
   } = options;
 
-  const lines: string[] = ["Hello Cardilac Garage,", ""];
+  const lines: string[] = ["Hello Cardilac,", ""];
 
   if (isPickupDelivery) {
     lines.push(

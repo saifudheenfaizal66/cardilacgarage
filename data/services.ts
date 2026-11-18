@@ -76,7 +76,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Ceramic paint protection for enhanced gloss and easier washing.",
     image: "/images/ceramic-coating.jpg",
-    imageAlt: "Ceramic coating water beading on car hood at Cardilac Garage",
+    imageAlt: "Ceramic coating water beading on car hood at Cardilac",
     pricingIds: ["ceramic-coating"],
     highlights: [
       "Enhanced paint gloss",
@@ -92,7 +92,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Russian brand graphene coating providing paint glow protection, anti-yellowing, and hydrophobic effect.",
     image: "/images/graphene-coating.jpg",
-    imageAlt: "Graphene coating applied on vehicle bodywork at Cardilac Garage",
+    imageAlt: "Graphene coating applied on vehicle bodywork at Cardilac",
     pricingIds: ["graphene-coating"],
     highlights: [
       "Russian brand",
@@ -110,7 +110,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Self-healing coating that eliminates light scratches with heat above 60°, with hydrophobic effect and paint glow protection.",
     image: "/images/borophene-coating.jpg",
-    imageAlt: "Borophene coating with thermal self-healing at Cardilac Garage",
+    imageAlt: "Borophene coating with thermal self-healing at Cardilac",
     pricingIds: ["borophene-coating"],
     highlights: [
       "Self healing",
@@ -129,7 +129,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Garware premium quality paint protection film shielding against stone chips, scratches, UV rays, and environmental damage.",
     image: "/images/ppf-wrapping.jpg",
-    imageAlt: "Garware Paint Protection Film installation at Cardilac Garage",
+    imageAlt: "Garware Paint Protection Film installation at Cardilac",
     pricingIds: ["ppf-wrapping"],
     warrantyBadge: "5-Year Warranty",
     highlights: [
@@ -147,7 +147,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Antic protective layer backed by a 5-year warranty.",
     image: "/images/anti-rust-layer.jpg",
-    imageAlt: "Antic protective layer applied at Cardilac Garage",
+    imageAlt: "Antic protective layer applied at Cardilac",
     pricingIds: ["antic-layer"],
     warrantyBadge: "5-Year Warranty",
     highlights: [
@@ -167,7 +167,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Body foam wash, alloy and wheel arch cleaning, mat washing, interior vacuum, and tyre polishing.",
     image: "/images/foam-wash.jpg",
-    imageAlt: "Basic foam car wash at Cardilac Garage",
+    imageAlt: "Basic foam car wash at Cardilac",
     pricingIds: ["basic-car-wash"],
     highlights: [
       "Body foam wash",
@@ -187,7 +187,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Enhanced foam wash with under chassis wash, glass cleaning, and dashboard dressing.",
     image: "/images/executive-wash.jpg",
-    imageAlt: "Executive car wash with under-chassis cleaning at Cardilac Garage",
+    imageAlt: "Executive car wash with under-chassis cleaning at Cardilac",
     pricingIds: ["executive-car-wash"],
     highlights: [
       "Body foam wash",
@@ -210,7 +210,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Ceramic foam wash with under chassis wash, iron & tar removal, wax application, and A/C vent steaming.",
     image: "/images/ceramic-wash.jpg",
-    imageAlt: "Premium ceramic car wash at Cardilac Garage",
+    imageAlt: "Premium ceramic car wash at Cardilac",
     pricingIds: ["premium-ceramic-wash"],
     highlights: [
       "Body foam wash",
@@ -240,7 +240,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Single step machine polishing to restore paint depth and gloss.",
     image: "/images/single-step-polishing.jpg",
-    imageAlt: "Single step car polishing at Cardilac Garage",
+    imageAlt: "Single step car polishing at Cardilac",
     pricingIds: ["single-step-polishing"],
     highlights: [
       "Single step machine polishing",
@@ -255,7 +255,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Ceramic polishing paired with graphene waxing backed by a 1-year warranty.",
     image: "/images/ceramic-polishing.jpg",
-    imageAlt: "Ceramic polishing with graphene wax at Cardilac Garage",
+    imageAlt: "Ceramic polishing with graphene wax at Cardilac",
     pricingIds: ["ceramic-polishing-graphene"],
     warrantyBadge: "1-Year Warranty",
     highlights: [
@@ -272,7 +272,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Anti-rust underbody coating available in 3M (1-year warranty) and Turtle Wax (4-year warranty).",
     image: "/images/underbody-coating.jpg",
-    imageAlt: "Underbody rubber protective coating at Cardilac Garage",
+    imageAlt: "Underbody rubber protective coating at Cardilac",
     pricingIds: ["underbody-3m", "underbody-turtle-wax"],
     warrantyBadge: "1–4 Yr Warranty",
     highlights: [
@@ -288,7 +288,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Turtle Wax protective silencer coating with 1-year warranty for all cars.",
     image: "/images/silencer-coating.jpg",
-    imageAlt: "Silencer protective coating at Cardilac Garage",
+    imageAlt: "Silencer protective coating at Cardilac",
     pricingIds: ["silencer-coating"],
     warrantyBadge: "1-Year Warranty",
     highlights: [
@@ -305,7 +305,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Window cooling film in 50% or 35% darkness with a 1-year warranty.",
     image: "/images/cooling-film.jpg",
-    imageAlt: "Cooling film installation on car windows at Cardilac Garage",
+    imageAlt: "Cooling film installation on car windows at Cardilac",
     pricingIds: ["cooling-film"],
     warrantyBadge: "1-Year Warranty",
     highlights: [
@@ -322,7 +322,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Removes lens oxidation and haze to restore optical clarity.",
     image: "/images/headlight-restoration.jpg",
-    imageAlt: "Headlight restoration at Cardilac Garage",
+    imageAlt: "Headlight restoration at Cardilac",
     pricingIds: ["headlight-restoration"],
     highlights: [
       "Removes lens oxidation and haze",
@@ -337,7 +337,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Tail lamp tinting treatment. Price depends on vehicle model.",
     image: "/images/tail-lamp-smoking.jpg",
-    imageAlt: "Tail lamp tinting at Cardilac Garage",
+    imageAlt: "Tail lamp tinting at Cardilac",
     pricingIds: ["tail-lamp-tinting"],
     highlights: [
       "Normal tinting treatment",
@@ -353,7 +353,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Targeted engine compartment degreasing and cleaning.",
     image: "/images/engine-bay.jpg",
-    imageAlt: "Engine bay deep cleaning at Cardilac Garage",
+    imageAlt: "Engine bay deep cleaning at Cardilac",
     pricingIds: ["engine-bay-cleaning"],
     highlights: [
       "Engine bay degreasing",
@@ -371,7 +371,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Intensive cabin interior deep cleaning for upholstery, carpets, and panels.",
     image: "/images/interior-cleaning.jpg",
-    imageAlt: "Interior deep cleaning at Cardilac Garage",
+    imageAlt: "Interior deep cleaning at Cardilac",
     pricingIds: ["interior-deep-cleaning"],
     highlights: [
       "Deep cabin interior cleaning",
@@ -387,7 +387,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Custom fitted Feno leather seat covers.",
     image: "/images/seat-covers-feno.jpg",
-    imageAlt: "Feno leather seat covers at Cardilac Garage",
+    imageAlt: "Feno leather seat covers at Cardilac",
     pricingIds: ["seat-covers-feno"],
     highlights: [
       "Feno Leather",
@@ -402,7 +402,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Custom fitted Napa leather seat covers using Napa material.",
     image: "/images/seat-covers-napa.jpg",
-    imageAlt: "Napa leather seat covers at Cardilac Garage",
+    imageAlt: "Napa leather seat covers at Cardilac",
     pricingIds: ["seat-covers-napa"],
     highlights: [
       "Napa Leather (Napa material)",
@@ -417,7 +417,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Premium quality Porsche leather seat covers with optional armrest.",
     image: "/images/seat-covers-porsche.jpg",
-    imageAlt: "Porsche leather seat covers at Cardilac Garage",
+    imageAlt: "Porsche leather seat covers at Cardilac",
     pricingIds: ["seat-covers-porsche"],
     highlights: [
       "Porsche Leather (premium quality)",
@@ -437,7 +437,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Body foam wash and tyre dressing for two-wheelers.",
     image: "/images/bike-wash-snowfoam.jpg",
-    imageAlt: "Basic bike foam wash at Cardilac Garage",
+    imageAlt: "Basic bike foam wash at Cardilac",
     pricingIds: ["basic-bike-wash"],
     highlights: [
       "Body foam wash",
@@ -452,7 +452,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     shortDescription:
       "Body foam wash, tyre dressing, chain cleaning, and spray wax application.",
     image: "/images/bike-wash-detailed.jpg",
-    imageAlt: "Detailed bike wash at Cardilac Garage",
+    imageAlt: "Detailed bike wash at Cardilac",
     pricingIds: ["detailed-bike-wash"],
     highlights: [
       "Body foam wash",

@@ -49,10 +49,10 @@ export function MetaVerificationDisclosure() {
               <FileCheck className="mt-1 h-6 w-6 shrink-0 text-[#E81CFF]" />
               <div>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-[#E81CFF]">
-                  Official Legal Relationship Disclosure
+                  Official Business Identity Disclosure
                 </h3>
                 <p className="mt-2 text-base sm:text-lg font-medium leading-relaxed text-white">
-                  &ldquo;<span className="font-bold text-[#E81CFF]">Cardilac Garage</span> is operated under our registered business <span className="font-bold text-white underline decoration-[#A020F0]">Cardilac</span>.&rdquo;
+                  &ldquo;Official website and studio operations of registered business <span className="font-bold text-[#E81CFF]">Cardilac</span>.&rdquo;
                 </p>
                 <p className="mt-2 text-xs text-[#A1A1AA]">
                   {BUSINESS_INFO.metaVerificationNotice}
@@ -77,11 +77,11 @@ export function MetaVerificationDisclosure() {
               </p>
             </div>
 
-            {/* 2. Operating Brand / Garage Name (Highlighted) */}
+            {/* 2. Operating Brand / Studio Name (Highlighted) */}
             <div className="flex flex-col rounded-xl border border-[#E81CFF]/60 bg-[#16131F] p-5 shadow-[0_0_24px_-8px_rgba(232,28,255,0.3)]">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#E81CFF]">
                 <Wrench className="h-4 w-4 text-[#E81CFF]" />
-                <span>Operating Brand Name</span>
+                <span>Brand &amp; Studio Name</span>
               </div>
               <div className="mt-2 text-xl font-black text-[#E81CFF]">
                 {BUSINESS_INFO.operatingBrandName}
@@ -197,7 +197,7 @@ export function MetaVerificationDisclosure() {
               <span>Registered Business Services &amp; Studio Capabilities</span>
             </div>
             <p className="mt-1.5 text-xs text-[#A1A1AA]">
-              Cardilac Garage operates as a professional car detailing, coating and protection studio providing:
+              Cardilac operates as a professional car detailing, coating and protection studio providing:
             </p>
 
             <div className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 text-xs text-[#D4D4D8]">

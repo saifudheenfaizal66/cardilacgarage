@@ -25,7 +25,7 @@ export function ContactSection() {
         <SectionHeading
           eyebrow="Visit or Connect"
           title="CONNECT WITH OUR STUDIO IN ALAPPUZHA."
-          description="Reach Cardilac Garage directly for technical consultation, service appointments, or doorstep vehicle pickup across Alappuzha."
+          description="Reach Cardilac directly for technical consultation, service appointments, or doorstep vehicle pickup across Alappuzha."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
@@ -37,7 +37,7 @@ export function ContactSection() {
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#E81CFF]/40 bg-[#17171F] shadow-[0_0_20px_-6px_rgba(232,28,255,0.4)]">
                     <img
                       src={BUSINESS_INFO.logos.emblem}
-                      alt="Cardilac Garage logo"
+                      alt="Cardilac logo"
                       className="h-8 w-8 object-contain"
                     />
                   </div>
@@ -160,7 +160,7 @@ export function ContactSection() {
             {/* Embedded Google Map */}
             <div className="w-full overflow-hidden rounded-2xl border border-[#292932] bg-[#111116] shadow-lg">
               <iframe
-                title="Cardilac Garage Location Map"
+                title="Cardilac Location Map"
                 src={BUSINESS_INFO.googleMapsEmbedUrl}
                 className="h-64 w-full border-0 grayscale contrast-125 invert-[0.9] hue-rotate-180"
                 loading="lazy"

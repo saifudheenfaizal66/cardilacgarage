@@ -47,7 +47,7 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
 
   // Build formatted text message
   const constructWhatsAppUrl = () => {
-    const lines: string[] = ["Hello Cardilac Garage,", ""];
+    const lines: string[] = ["Hello Cardilac,", ""];
 
     if (customerName.trim()) {
       lines.push(`My Name: ${customerName.trim()}`);
@@ -136,7 +136,7 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
             <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#E81CFF]/50 bg-[#111116] shadow-[0_0_20px_-4px_rgba(232,28,255,0.4)]">
               <img
                 src={BUSINESS_INFO.logos.emblem}
-                alt="Cardilac Garage logo"
+                alt="Cardilac logo"
                 className="h-7 w-7 object-contain"
               />
             </div>
@@ -335,7 +335,7 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
               <span className="text-[10px] text-[#71717A]">Direct to {BUSINESS_INFO.phoneDisplay} / {BUSINESS_INFO.secondaryPhoneDisplay}</span>
             </div>
             <div className="rounded-md border border-[#1F2937]/50 bg-[#111827]/40 p-3 text-xs leading-relaxed text-[#D1D5DB]">
-              <p className="text-white font-medium">Hello Cardilac Garage,</p>
+              <p className="text-white font-medium">Hello Cardilac,</p>
               {customerName.trim() ? <p>My Name: {customerName.trim()}</p> : null}
               <p className="mt-1 text-[#E5E7EB]">
                 I would like to enquire / book an appointment slot:
@@ -363,7 +363,7 @@ function ModalFormContent({ options, onClose }: ModalFormContentProps) {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
             <p className="mt-2 text-center text-[11px] text-[#71717A]">
-              Dispatches immediately to Cardilac Garage via WhatsApp. No login or signup required.
+              Dispatches immediately to Cardilac via WhatsApp. No login or signup required.
             </p>
           </div>
         </form>
